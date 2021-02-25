@@ -1,0 +1,25 @@
+$relative-link-to-modules: "../../modules/fonts";
+
+@include font-face("Raleway", "Raleway-Light", "300", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-Regular", "400", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-Medium", "500", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-SemiBold", "600", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-Bold", "700", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-ExtraBold", "800", "normal", $relative-link-to-modules);
+@include font-face("Raleway", "Raleway-Black", "900", "normal", $relative-link-to-modules);
+
+
+@include font-face("IBMPlexSans", "IBMPlexSans-Light", "300", "normal", $relative-link-to-modules);
+@include font-face("IBMPlexSans", "IBMPlexSans-Regular", "400", "normal", $relative-link-to-modules); //default
+@include font-face("IBMPlexSans", "IBMPlexSans-Medium", "500", "normal", $relative-link-to-modules);
+@include font-face("IBMPlexSans", "IBMPlexSans-SemiBold", "600", "normal", $relative-link-to-modules);
+@include font-face("IBMPlexSans", "IBMPlexSans-Bold", "700", "normal", $relative-link-to-modules);
+
+
+// @include font-face("Roboto", "Roboto-Light", "300", "normal", $relative-link-to-modules);
+// @include font-face("Roboto", "Roboto-Regular", "400", "normal", $relative-link-to-modules);
+@include font-face("Roboto", "Roboto-Bold", "700", "normal", $relative-link-to-modules);
+
+
+@include font-face("Montserrat", "Montserrat-Light", "300", "normal", $relative-link-to-modules);
+@include font-face("Montserrat", "Montserrat-SemiBold", "600", "normal", $relative-link-to-modules);

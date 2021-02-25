@@ -1,0 +1,42 @@
+#quiz-2 {
+    .form {}
+    .popup {
+        &__body {
+            padding: 1.5625rem 1.5rem;
+        }
+    }
+    .quiz {
+        &-slide {
+            &:nth-child(3) {
+                h3 {
+                    margin-bottom: 1.8125rem;
+                }
+                .quiz__input {
+                    margin-bottom: 0.5625rem;
+                }
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #quiz-2 {
+        .form {}
+        .popup {
+            &__body {
+                height: 34.125rem;
+                padding: 0;
+            }
+        }
+        .quiz {
+            &-slide {
+                padding: 3rem 4.0625rem 2rem 29.3125rem;
+                &:nth-child(2) {
+                    h3 {
+                        margin-bottom: 1.5625rem;
+                    }
+                }
+                &:nth-child(3) {}
+            }
+        }
+    }
+}

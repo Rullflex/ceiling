@@ -1,0 +1,59 @@
+#rig {
+    .form {
+        &__img {
+            &-car.lazyloaded {
+                width: 16.75rem;
+                @media (min-width: map-get($grid-breakpoints, md)) {
+                    width: 20rem;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    .popup {
+        &__descr {
+            font-weight: 300;
+            font-size: 0.875rem;
+            line-height: 1.3em;
+            padding-left: 0.5rem;
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #rig {
+        .form {
+            &__img {
+                &-car.lazyloaded {
+                    width: 24.9375rem;
+                    margin-left: 0;
+                    position: absolute;
+                    top: 5.0625rem;
+                    left: 1.8rem;
+                }
+            }
+        }
+        .popup {
+            &__body {
+                padding: 4.9375rem 10.5rem 3.125rem 29.25rem;
+            }
+            &__title {
+                font-size: 2.25rem;
+                margin-bottom: 0;
+            }
+            &__descr {
+                background: #FFFFFF;
+                box-shadow: 0.125rem 0.25rem 0.4375rem rgba(43, 48, 52, 0.3);
+                border-radius: 0.6875rem;
+                font-weight: normal;
+                font-size: 1rem;
+                padding: 1.9375rem 2.0625rem 2.3125rem 2.3125rem;
+                position: absolute;
+                left: 2.5rem;
+                bottom: 3.0625rem;
+            }
+        }
+    } 
+}

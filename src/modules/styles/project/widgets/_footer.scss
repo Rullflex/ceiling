@@ -1,0 +1,174 @@
+.footer {
+    padding-top: 4.6875rem;
+    padding-bottom: 1.625rem;
+
+    // background: linear-gradient(0deg, #3F5C7D, #3F5C7D), linear-gradient(180deg, rgba(43, 48, 52, 0.5) 0%, rgba(41, 134, 243, 0.5) 100%);
+    background: $primary;
+    mix-blend-mode: normal;
+    backdrop-filter: blur(4px);
+    &__img {
+        &-logo {
+            width: 16.875rem;
+        }
+    }
+    &__row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    &__logo {
+    }
+    &__descr {
+        font-size: 0.875rem;
+        text-align: center;
+        margin-top: 0.8125rem;
+        margin-bottom: 5.6875rem;
+    }
+    &__icons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.3rem;
+    }
+    &__icon {
+        padding: 0 0.25rem;
+        svg {
+            width: 2.375rem;
+        }
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__tel {
+        font-weight: bold;
+        font-size: 1.5625rem;
+        line-height: 1em;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    &__email {
+        font-size: 1rem;
+        text-align: center;
+        color: #FFFFFF;
+        margin-bottom: 0.5rem;
+    }
+    &__policy {
+        font-size: 0.625rem;
+        line-height: 1.5em;
+        text-align: center;
+        text-decoration: underline;
+        color: #FFFFFF;
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .footer {
+        padding-top: 3.75rem;
+        padding-bottom: 2.25rem;
+    
+        &__img {
+            &-logo {
+                width: 11.6875rem;
+            }
+        }
+        &__row {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-left: 1.875rem;  
+            padding-right: 1.25rem;
+        }
+        &__logo {
+            order: 2;
+            margin-bottom: 1.625rem;
+        }
+        &__descr {
+            order: 1;
+            font-size: 0.9375rem;
+            text-align: left;
+            margin-bottom: 0;
+        }
+        &__icons {
+            order: 3;
+            margin-bottom: 0;
+        }
+        &__icon {
+            padding: 0 0.3125rem;
+            svg {
+                width: 2.0625rem;
+            }
+        }
+        &__links {
+            order: 5;
+            align-items: flex-end;
+        }
+        &__tel {
+            font-size: 1.1875rem;
+            line-height: 1em;
+            text-align: right;
+        }
+        &__email {
+            font-size: 0.6875rem;
+            text-align: right;
+            margin-bottom: 0;
+        }
+        &__policy {
+            order: 4;
+            font-size: 0.875rem;
+            text-align: left;
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .footer {
+        padding-top: 7.875rem;
+        padding-bottom: 6.625rem;
+    
+        &__img {
+            &-logo {
+                width: 16.875rem;
+            }
+        }
+        &__row {
+            padding-left: 1.5rem;  
+            padding-right: 1.5rem;
+        }
+        &__logo {
+            order: 2;
+            margin-bottom: 0;
+            margin-right: 10rem;
+        }
+        &__descr {
+            order: 1;
+            font-size: 1.375rem;
+            margin-top: 0.5rem;
+        }
+        &__icons {
+            order: 3;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+        &__icon {
+            svg {
+                width: 3.5rem;
+            }
+        }
+        &__links {
+            order: 5;
+        }
+        &__tel {
+            font-size: 1.875rem;
+        }
+        &__email {
+            font-size: 1.125rem;
+        }
+        &__policy {
+            order: 4;
+            width: 31.25rem;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+    }
+}

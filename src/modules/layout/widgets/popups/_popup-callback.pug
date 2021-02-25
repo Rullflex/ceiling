@@ -1,0 +1,13 @@
+#callback.popup.uk-flex-top(data-uk-modal)
+	.popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
+		button.popup__close.uk-modal-close-default(type="button" data-uk-close)
+		h3.popup__title= lang[49]
+		form.form(action="#")
+			.form__main
+				.form__block.input-wrap
+					input.form__input.input(type="text" name="Имя" placeholder=lang.urName)
+				.form__block.input-wrap
+					input.form__input.input(type="tel" name="Телефон" placeholder="Ваш телефон")
+				+picture(png, `${modules}popup-tel`, 'n', 'n')(class="form__img-tel")
+				button.form__submit.uk-button.btn-solid-muted(type="submit")= lang[2]
+			.form__policy #[!= lang[50][0]]&nbsp;#[a.form__policy-link(href=privacyLink target="_blank")= lang[50][1]]

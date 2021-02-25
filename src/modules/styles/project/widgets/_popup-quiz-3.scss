@@ -1,0 +1,312 @@
+#quiz-3 {
+    .form {
+
+    }
+    .popup {
+        &__body {
+            padding: 1.5625rem 1.5rem;
+        }
+    }
+    .quiz {
+        &__img {
+        }
+        &-slide {
+            &:nth-child(2) {
+                h3 {
+                    margin-bottom: 15.3125rem;
+                    @media (min-width: map-get($grid-breakpoints, md)) {
+                        margin-bottom: 17.5rem;
+                    }
+                }
+            }
+            &:nth-child(3) {
+                h3 {
+                    text-align: left;
+                    width: 18.75rem;
+                    margin-top: 1rem;
+                    margin-bottom: 2rem;
+                    @media (min-width: map-get($grid-breakpoints, md)) {
+
+                    }
+                }
+            }
+        }
+        &__gift {
+            &-wrap {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 7.4375rem;
+                @if $lang == 'ru' {
+                    left: 3.2rem;
+                }
+                @if $lang == 'ukr' {
+                    left: 2.2rem;
+                }
+                z-index: 1;
+            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 2.5625rem;
+            height: 2.5625rem;
+            border: 0.0625rem solid $primary;
+            background: white;
+            border-radius: 50%;
+            z-index: 3;
+            flex-shrink: 0;
+            svg {
+                width: 1.375rem;
+            }
+            &-text {
+                @if $lang == 'ru' {
+                    width: 11.875rem;
+                }
+                @if $lang == 'ukr' {
+                    width: 12.875rem;
+                }
+                padding-left: 1.3rem;
+                border: 0.0625rem solid $primary;
+                background: white;
+                border-radius: 0.1875rem;
+                font-size: 0.75rem;
+                line-height: 1.6875rem;
+                color: $dark;
+                margin-left: -0.8125rem;
+                .text-primary {
+                    font-weight: 600;
+                }
+            }
+        }
+        &__counter {
+            &-items {
+            }
+            &-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 1.125rem;
+                &.quiz-active {
+                    .quiz__counter {
+                        &-minus {
+                            color: #736D6D;
+                        }
+                        &-number {
+                            font-weight: 500;
+                            color: $primary;
+                        }
+                        &-plus {
+                            color: #736D6D;
+                        }
+                        &-price {
+                            span {
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+            &-value {
+                @if $lang == 'ru' {
+                    width: 4.875rem;
+                }
+                @if $lang == 'ukr' {
+                    width: 4rem;
+                }
+                font-weight: 500;
+                font-size: 0.75rem;
+                line-height: 0.87em;
+                color: $dark;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 4rem;
+            height: 1.3125rem;
+            padding-bottom: 0.1rem;
+            background: #FFFFFF;
+            border: 0.0625rem solid #D2D2D2;
+            border-radius: 0.3125rem;
+
+            font-family: Raleway;
+            color: #838383;
+            line-height: 1.1875rem;
+
+            margin-right: 0.6875rem;
+            &-minus {
+                flex-shrink: 0;
+                width: 1.1rem;
+                text-align: center;
+                font-weight: 300;
+                font-size: 1.5rem;
+                position: relative;
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 1rem;
+                    width: 0.0625rem;
+                    background: #d2d2d2;
+                    @include center-item-y('absolute');
+                    right: 0;
+                }
+                span {
+                    user-select: none;
+                }
+            }
+            &-number {
+                font-weight: 300;
+                font-size: 1rem;
+            }
+            &-plus {
+                flex-shrink: 0;
+                width: 1.1rem;
+                text-align: center;
+                font-weight: 300;
+                font-size: 1.5rem;
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 1rem;
+                    width: 0.0625rem;
+                    background: #d2d2d2;
+                    @include center-item-y('absolute');
+                    left: 0;
+                }
+                span {
+                    user-select: none;
+                }
+            }
+            &-price {
+                user-select: none;
+                width: 4.6875rem;
+                font-size: 0.625rem;
+                color: #EFB113;
+            }
+            &-divider {
+                width: 0.0625rem;
+                height: 0.9375rem;
+                background: #D2D2D2;
+                margin-right: 0.5rem;
+            }
+            &-time {
+                font-weight: 500;
+                font-size: 0.6875rem;
+                color: #868686;
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #quiz-3 {
+        .form {}
+        .popup {
+            &__body {
+                height: 34.125rem;
+                padding: 0;
+            }
+        }
+        .quiz {
+            &-slide {
+                padding: 3rem 4.0625rem 2rem 29.3125rem;
+                &:nth-child(2) {
+                    h3 {
+                        margin-bottom: 1.5625rem;
+                    }
+                }
+                &:nth-child(3) {
+                    h3 {
+                        margin-top: 3.5rem;
+                        width: 25rem;
+                    }
+                }
+            }
+            &__gift {
+                &-wrap {
+                    top: 9.625rem;
+                    left: 11.25rem;
+                }
+                width: 3.4375rem;
+                height: 3.4375rem;
+                border: 0.1rem solid $primary;
+                svg {
+                    width: 1.625rem;
+                }
+                &-text {
+                    @if $lang == 'ru' {
+                        width: 12.7rem;
+                    }
+                    @if $lang == 'ukr' {
+                        width: 13.7rem;
+                    }
+                    padding-left: 1.8125rem;
+                    border: 0.1rem solid $primary;
+                    border-radius: 0.375rem;
+                    line-height: 2.0625rem;
+                    color: $dark;
+                    margin-left: -0.875rem;
+                    .text-primary {}
+                }
+            }
+            &__counter {
+                &-items {
+                }
+                &-item {
+                    margin-bottom: 1.3125rem;
+                    &.quiz-active {
+                        .quiz__counter {
+                            &-minus {}
+                            &-number {}
+                            &-plus { }
+                            &-price {
+                                span {}
+                            }
+                        }
+                    }
+                }
+                &-value {
+                    width: 7.6875rem;
+                    font-size: 1.125rem;
+                    line-height: 0.91em;
+                }
+                width: 6.25rem;
+                height: 1.73rem;
+                padding-bottom: 0.1rem;
+                border-radius: 0.3125rem;
+    
+                // line-height: 1rem;
+    
+                margin-right: 1.625rem;
+                &-minus {
+                    cursor: pointer;
+                    width: 1.625rem;
+                    font-size: 1.5rem;
+                    &::after {
+                        height: 1.25rem;
+                    }
+                }
+                &-number {
+                    font-size: 1.25rem;
+                }
+                &-plus {
+                    cursor: pointer;
+                    width: 1.625rem;
+                    font-size: 1.5rem;
+                    &::before {
+                        height: 1.25rem;
+                    }
+                }
+                &-price {
+                    width: 7.25rem;
+                    font-size: 0.875rem;
+                }
+                &-divider {
+                    height: 1.25rem;
+                    margin-right: 1.4375rem;
+                }
+                &-time {
+                    font-size: 0.875rem;
+                }
+            }
+        }
+    }
+}

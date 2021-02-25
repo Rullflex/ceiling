@@ -1,0 +1,48 @@
+header.header
+    .container
+        .header__row
+            a.header__logo(href="/")
+                img.header__img-logo(src=`${modulesIco}logo-dark.svg` alt=companyName)
+                p.header__logo-title Натяжные потолки
+            .header__location
+                +icon('pin')
+                span= lang[1]
+            .header__lang-wrap
+                if language == 'ukr'
+                    a.header__lang(href="/ru")
+                        +icon('flag-ru')
+                        span ru
+                    .header__lang-div
+                    .header__lang.header__lang--active
+                        +icon('flag-ukr')
+                        span ukr
+                else
+                    .header__lang.header__lang--active
+                        +icon('flag-ru')
+                        span ru
+                    .header__lang-div
+                    a.header__lang(href="/")
+                        +icon('flag-ukr')
+                        span ukr
+            a.uk-button.btn-outline-yellow.header__btn.d-none(href="#callback" data-uk-toggle="")= lang[2]
+            .header__info.d-none.d-lg-flex
+                a.header__info-tel(href=phoneLink)= phoneNumber
+                .header__info-status= lang[3]
+            //- burger
+            a.uk-icon.header__burger(href="#")
+                - for (var x = 0; x < 4; x++) 
+                    i
+            .header__drop.uk-navbar-dropdown(data-uk-dropdown="mode: click; pos: bottom-justify; boundary: .header; boundary-align: true; animation: uk-animation-slide-top-small; duration: 300")
+                .header__drop-nav
+                    img.header__drop-logo(src=`${modulesIco}logo-white.svg` alt=companyName)
+                    p.header__drop-descr!= lang.motto
+                    .header__drop-icons 
+                        a.header__drop-icon(href=instLink) 
+                            +icon('social-inst', 'white')
+                        a.header__drop-icon(href=fbLink) 
+                            +icon('social-fb', 'white')
+                    a.header__drop-tel(href=phoneLink)= phoneNumber
+                    .header__drop-status= lang[3]
+                    a.uk-button.btn-outline-white.header__drop-btn(href="#callback" data-uk-toggle="")= lang.cb
+                    a.header__drop-email(href=`mailto:${mailAdress}`)= mailAdress
+            //- end burger

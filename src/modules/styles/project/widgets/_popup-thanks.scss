@@ -1,0 +1,27 @@
+#thanks {
+    .popup {
+        &__body {
+            padding: 1.5625rem 1.5rem;
+        }
+    }
+    .quiz {
+        &-slide {
+
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #thanks {
+        .popup {
+            &__body {
+                height: 34.125rem;
+                padding: 0;
+            }
+        }
+        .quiz {
+            &-slide {
+                padding: 3rem 4.0625rem 2rem 29.3125rem;
+            }
+        }
+    }
+}

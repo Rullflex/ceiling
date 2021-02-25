@@ -1,0 +1,85 @@
+.popup {
+    padding: 0;
+	background: white;
+    &__body {
+        width: 20rem;
+        padding: 3.125rem 1.25rem;
+        margin-top: 0 !important;
+    }
+    &__close {
+        color: $primary;
+        right: 0.5rem;
+        svg {
+            width: 1rem;
+        }
+    }
+    &__title {
+        font-family: Raleway;
+        font-weight: bold;
+        font-size: 1.75rem;
+        line-height: 1.05em;
+        text-align: left;
+
+        margin-bottom: 0.3125rem;
+    }
+    &__subtitle {}
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .popup {
+        background: rgba(0,0,0,.6);
+        padding: 2.5rem;
+        &__body {
+            width: 33rem;
+            padding: 3.125rem 2rem;
+            border-radius: 0.5rem;
+            margin-top: auto !important;
+            margin-bottom: auto !important;
+        }
+        &__close {
+            right: -2rem;
+            top: -2rem;
+            svg {
+                width: 1.5rem;
+            }
+        }
+        &__title {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+        }
+        &__subtitle {
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.05em;
+            margin-top: 0.6875rem;
+            margin-bottom: 2.375rem;
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .popup {
+        &__body {
+            width: 61.6875rem;
+            padding: 3.125rem 2rem;//
+            border-radius: 0.6875rem;
+            overflow: hidden;
+        }
+        &__close {
+            right: 1rem;
+            top: 1rem;
+            svg {
+                width: 1.5rem;
+            }
+            &:hover {
+                color: $primary;
+            }
+        }
+        &__title {
+            // font-size: 2.5rem;
+            // margin-bottom: 0.3125rem;
+        }
+        &__subtitle {
+            margin-bottom: 1.5rem;
+            width: 25rem;
+        }
+    }
+}

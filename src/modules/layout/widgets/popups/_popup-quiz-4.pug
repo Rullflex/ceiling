@@ -1,0 +1,18 @@
+#quiz-4.popup.uk-flex-top(data-uk-modal)
+  .popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
+    button.popup__close.uk-modal-close-default(type="button" data-uk-close)
+    .quiz__main 
+      .quiz-slide-wrap
+        +quiz-slide-first(4)
+        .quiz-slide.quiz-active.quiz-validate(data-title=lang[54])
+          h3= lang[54]
+          h4.quiz__subtitle= lang[59]
+          .input-wrap 
+            input.quiz__input.input(type="tel" name="Телефон" placeholder="Ваш телефон")
+          +picture(png, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
+        +quiz-slide-final()
+      +quiz-nav(2)
+
+      
+    
+    

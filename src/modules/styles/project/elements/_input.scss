@@ -1,0 +1,36 @@
+.input {
+    $self: &;
+    display: block;
+
+    border-width: 0.0625rem;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-radius: 1.875rem;
+    box-shadow: 0px 0px 0.5rem 0.1875rem transparent;
+
+    transition: $transition--normal;
+
+    font-family: Raleway;
+    font-weight: 500;
+    color: $text-dark;
+    font-size: 0.875rem;
+    &:focus {
+        border-color: #838383;
+    }
+    &-wrap {
+        &.has-error {
+            #{$self} {
+                border-color: $danger !important;
+                box-shadow: 0px 0px 0.5rem 0.1875rem rgba($danger, 0.19);
+                color: $danger;
+            }
+        }
+        &.has-success {
+            #{$self} {
+                border-color: $primary !important;
+                box-shadow: 0px 0px 0.5rem 0.1875rem rgba($primary, 0.19);
+                color: $primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,225 @@
+@import "./elements/buttons";
+@import "./elements/input";
+
+%headings {
+    font-family: Raleway;
+    color: $text-dark;
+}
+
+
+h2 {
+    @extend %headings;
+    font-weight: bold;
+    font-size: 1.5625rem;
+    line-height: 1.16em;
+    text-align: center;
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+
+    h2 {
+        font-size: 2.5rem;
+        line-height: 1.175em;
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    h2 {
+        text-align: left;
+    }
+}
+
+.play-video {
+    display: flex;
+    align-items: center;
+
+    svg {
+        width: 3.75rem;
+
+        margin-right: -0.875rem;
+        z-index: 2;
+    }
+    &__helper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 0;
+        
+        background: #FFFFFF;
+        border-radius: 0.1875rem;
+
+        overflow: hidden;
+        transition: $transition--hover;
+
+        font-family: Roboto;
+        font-weight: 300;
+        
+        color: #606060;
+        
+        &--expanded {
+
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        svg {
+            width: 4.125rem;
+        }
+        &__helper {
+            width: 0;
+            // height: 2.625rem;
+            padding-right: 0.25rem;
+            font-size: 0.6875rem;
+            line-height: 1.8125rem;
+            text-align: right;
+            
+            &--expanded {
+                padding-right: 1.1875rem;
+    
+                font-size: 0.9375rem;
+                line-height: 2.625rem;
+                width: 12.5rem;
+            }
+        }
+    }
+    @media (min-width: map-get($grid-breakpoints, lg)) {
+        svg {
+        }
+        &__helper {
+            &--expanded {
+                padding-right: 1.5rem;
+                font-size: 1.4375rem;
+                line-height: 4rem;
+                width: 18.55rem;
+            }
+        }
+    }
+}
+
+.slide {
+    &dots {
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        &>* {
+            padding: 0 0.25rem;
+            &>* {
+                width: 0.875rem;
+                height: 0.875rem;
+                background: #D9D9D9;
+                &:hover, &:focus {
+                    background-color: link-hover($primary);
+                }
+            }
+        }
+        &>.uk-active>* {
+            background-color: $primary;
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+        &--white {
+            &>* {
+                &>* {
+                    background: white;
+                }
+            }
+            &>.uk-active>* {
+                background-color: #BC67FF;
+                border: 2px solid #FFFFFF;
+            }
+        }
+        &--yellow {
+            &>* {
+                &>* {
+                    border-color: white;
+                    &:hover, &:focus {
+                        background-color: link-hover($yellow);
+                    }
+                }
+            }
+            &>.uk-active>* {
+                background-color: $yellow;
+            }
+        }
+    }
+    &nav {
+        svg {
+            width: 1.5rem;
+            path {
+                stroke: white;
+            }
+        } 
+        &--rounded {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: $primary;
+            svg {
+                width: 0.6rem;
+                path {
+                    stroke: white;
+                }
+            }        
+        }
+        &--outline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 0.1rem solid $primary;
+            border-radius: 50%;
+            svg {
+                width: 0.375rem;
+                path {
+                    stroke: $primary;
+                }
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .slide {
+        &dots {
+            &>* {
+                padding: 0 0.3125rem;
+                &>* {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    &:hover, &:focus {}
+                }
+            }
+            &>.uk-active>* {
+                width: 1.53rem;
+                height: 1.53rem;
+            }
+        }
+        &nav {
+            &--rounded {
+                width: 2.9375rem;
+                height: 2.9375rem;
+                svg {
+                    width: 0.8125rem;
+                }
+            }
+            &--outline {
+                width: 2.1875rem;
+                height: 2.1875rem;
+                border: 0.1875rem solid $primary;
+                svg {
+                    width: 0.5625rem;
+                    path {}
+                }
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+}
+
+.lazymin {
+    filter: blur(10px);
+    &.lazyloaded {
+        filter: unset;
+    }
+}

@@ -1,0 +1,44 @@
+#quiz-4 {
+    .form {
+
+    }
+    .popup {
+        &__body {
+            padding: 1.5625rem 1.5rem;
+        }
+    }
+    .quiz {
+        &-slide {
+            &:nth-child(2) {
+                h3 {
+                    text-align: left;
+                    width: 18.75rem;
+                }
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #quiz-4 {
+        .form {}
+        .popup {
+            &__body {
+                height: 34.125rem;
+                padding: 0;
+            }
+        }
+        .quiz {
+            &-slide {
+                padding: 3rem 4.0625rem 2rem 29.3125rem;
+                &:nth-child(2) {
+                    h3 {
+                        margin-top: 2.8125rem;
+                        width: 25rem;
+                    }
+                }
+                &:nth-child(3) {}
+            }
+        }
+    }
+}
+

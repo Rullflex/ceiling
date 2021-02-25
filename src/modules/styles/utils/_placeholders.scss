@@ -1,0 +1,8 @@
+%cross-line {
+    content: '';
+    display: block;
+
+    background: rgba($muted, 0.5);
+
+    @include center-item();
+}

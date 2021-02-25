@@ -1,0 +1,37 @@
+#quiz-3.popup.uk-flex-top(data-uk-modal)
+  .popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
+    button.popup__close.uk-modal-close-default(type="button" data-uk-close)
+    .quiz__main 
+      .quiz-slide-wrap
+        +quiz-slide-first(3)
+        .quiz-slide.quiz-active(data-title=lang[57])
+          h3= lang[57]
+          .quiz__circle
+          +picture(png, `${modules}quiz-sofa`, 'sl', 'l')(class="quiz__img-sofa")
+          .quiz__gift-wrap 
+            .quiz__gift 
+              +icon('gift')
+            .quiz__gift-text #[=lang[58][0]] #[span.text-primary=lang[58][1]]
+          ul.quiz__counter-items
+            each item, idx in lang[56]
+              li.quiz__counter-item(data-name=item data-value="0")
+                p.quiz__counter-value= item 
+                .quiz__counter
+                  .quiz__counter-minus #[span -]
+                  .quiz__counter-number 0
+                  .quiz__counter-plus #[span +]
+                .quiz__counter-price #[span 20-50] грн/м2
+                .quiz__counter-divider
+                .quiz__counter-time= lang[55]
+        .quiz-slide.quiz-validate(data-title=lang[54])&attributes(attributes)
+          h3= lang[54]
+          .input-wrap 
+            input.quiz__input.input(type="tel" name="Телефон" placeholder="Ваш телефон")
+          +picture(png, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
+        +quiz-slide-final()
+      +quiz-nav(3)
+
+
+      
+    
+    

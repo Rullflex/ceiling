@@ -1,0 +1,104 @@
+$disabled: ".disabled";
+.uk-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    cursor: pointer;
+    
+    transition: $transition--hover;
+
+    font-family: "Raleway";
+    text-align: center;
+}
+
+.btn {
+    &-solid {
+        @mixin btn-solid($btn-color, $font-color) {
+
+            background: $btn-color;
+            border-radius: 1.875rem;
+
+            color: $font-color;
+            font-weight: 500;
+
+            &:active {
+                box-shadow: 0.0625rem 0.125rem 0.5rem 0.3125rem rgba($btn-color, 0.2);
+                font-weight: 800;
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                &:hover {
+                    box-shadow: 0.0625rem 0.125rem 0.5rem 0.3125rem rgba($btn-color, 0.2);
+                    font-weight: 800;
+                }
+            }
+        }
+        &-primary {
+            @include btn-solid($primary, $text-light);
+            $self: &;
+            #{$self + $disabled} {
+                background: $muted;
+            }
+        }
+        &-muted {
+            @include btn-solid($muted, $text-light);
+        }
+    }
+    &-outline {
+        @mixin btn-outline($btn-color: $primary) {
+
+            border: 0.0625rem solid $btn-color;
+            background: transparent;
+            border-radius: 1.875rem;
+
+            color: $btn-color;
+            font-weight: 500;
+
+            &:active {
+                background: $btn-color;
+                color: $text-light;
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                &:hover {
+                    background: $btn-color;
+                    color: $text-light;
+                }
+            }
+        }
+        &-primary {
+            @include btn-outline();
+
+        }
+        &-muted {
+            @include btn-outline($muted);
+        }   
+        &-yellow {
+            @include btn-outline($yellow);
+        }    
+        &-white {
+            @include btn-outline(white);
+        }
+    }
+    &-yellow {
+        background: linear-gradient(177.08deg, #FFD772 2.32%, #FCBE1E 97.48%);
+        box-shadow: 3px 10px 10px rgba(255, 184, 0, 0.3);
+        border-radius: 1.875rem;
+        transition: unset;
+        font-family: Raleway;
+        font-weight: 500;
+        color: #622E2E;
+        &:active {
+            background: linear-gradient(177.08deg, #FFC42E 2.32%, #FC891E 97.48%);
+            box-shadow: 3px 10px 10px rgba(241, 130, 0, 0.3);
+        }
+        @media (min-width: map-get($grid-breakpoints, md)) {
+        }
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            &:hover {
+                background: linear-gradient(177.08deg, #FFC42E 2.32%, #FC891E 97.48%);
+                box-shadow: 3px 10px 10px rgba(241, 130, 0, 0.3);
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+#callback {
+    .form {
+        &__img {
+            &-tel.lazyloaded {
+                width: 16.75rem;
+                @media (min-width: map-get($grid-breakpoints, md)) {
+                    width: 20rem;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+    .popup {
+
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #callback {
+        .form {
+            &__img {
+                &-tel {position: absolute;}
+                &-tel.lazyloaded {
+                    width: 24.9375rem;
+                    margin-left: 0;
+                    position: absolute;
+                    top: 5.0625rem;
+                    left: 3.1875rem;
+                }
+            }
+        }
+        .popup {
+            &__body {
+                padding: 4.9375rem 10.5rem 6.5rem 29.25rem;
+            }
+            &__title {
+                font-size: 2.25rem;
+                margin-bottom: 0;
+            }
+        }
+    } 
+}

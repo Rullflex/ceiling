@@ -1,0 +1,427 @@
+.quiz {
+    &__img {
+        &-woman {
+            width: 20rem;
+            height: 25.6875rem;
+            @include center-item-x();
+            z-index: -2;
+            margin-top: -4rem;
+            margin-bottom: -1rem;
+        }
+        &-woman-ok {
+            width: 20rem;
+            position: absolute;
+            z-index: -2;
+            top: 1rem;
+            left: -1.5rem;
+        }
+        &-dim {
+            width: 19.25rem;
+            position: absolute;
+            left: -2rem;
+            top: 14.75rem;
+        }
+        &-tel {
+            width: 16.9375rem;
+        }
+        &-hand {
+            width: 20rem;
+            top: 0rem;
+            @include center-item-x('absolute');
+            z-index: -2;
+        }
+        &-sofa {
+            position: absolute;
+            width: 17.1875rem;
+            top: 6.625rem;
+            left: 0.125rem;
+            z-index: -3;
+        }
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            &-woman {
+                margin-top: -2.5rem;
+                margin-bottom: -2.5rem;
+            }
+            &-woman-ok {
+                width: 17rem;
+                top: unset;
+                bottom: 0;
+                left: 7rem;
+            }
+            &-dim {
+                left: 5rem;
+            }
+            &-tel {
+                position: relative;
+                left: 6rem;
+            }
+            &-hand {
+                width: 33rem;
+                top: 0.5rem;
+            }
+            &-sofa {
+            }
+        }
+    }
+    &__circle {
+        width: 11.125rem;
+        height: 11.125rem;
+        border-radius: 50%;
+        background: linear-gradient(282.6deg, #FCCB1E 23.21%, rgba(252, 203, 30, 0) 92.25%);
+        mix-blend-mode: multiply;
+        transform: rotate(166deg);
+        position: absolute;
+        top: 5rem;
+        left: 2.75rem;
+        z-index: -4;
+        @media (min-width: map-get($grid-breakpoints, md)) {
+
+        }
+    }
+    &__main {
+        position: relative;
+        // width: 16.9375rem;
+        // margin: 0 auto;
+    }
+    &__subtitle {
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 1.05em;
+        margin-top: 0.6875rem;
+        margin-bottom: 2.375rem;
+    }
+    &__progress {
+        margin-bottom: 1rem;
+        &-title {
+            font-family: Montserrat;
+            font-weight: 300;
+            font-size: 0.625rem;
+            color: $dark;
+            margin-bottom: 0.25rem;
+        }
+        &-bar {
+            &-wrap {
+                width: 100%;
+                height: 0.3125rem;
+                background: #D9D9D9;
+                border-radius: 0.3125rem;
+                position: relative;
+            }
+            height: 100%;
+            width: 0;
+            background: linear-gradient(270deg, #2783EF 0%, #103A90 100%);
+            border-radius: 0.3125rem;
+            transition: $transition--slow;
+        }
+    }
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+        button {
+            width: 8.125rem;
+            line-height: 2.5rem;
+            font-size: 0.75rem;
+            &:active {
+                svg path {
+                    stroke: $text-light;
+                }
+            }
+            @media (min-width: map-get($grid-breakpoints, lg)) {
+                &:hover {
+                    svg path {
+                        stroke: $text-light;
+                    }
+                }
+            }
+        }
+    }
+    &-btn {
+        &-prev {
+            svg {
+                width: 0.45rem;
+                margin-right: 0.7rem;
+                margin-left: -0.5rem;
+            }
+        }
+        &-next {
+            svg {
+                width: 0.45rem;
+                margin-left: 0.7rem;
+                margin-right: -0.5rem;
+            } 
+        }
+    }
+    &-slide {
+        &-wrap {
+            width: 100%;
+            min-height: 31.625rem;
+            transition: $transition--fast;
+            position: relative;
+        }
+        width: 100%;
+        height: 100%;
+        transition: $transition--slow;
+        pointer-events: none;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        &:nth-child(1) {
+            h3 {
+                margin-bottom: 1rem;
+            }
+        }
+        &-final {}
+        &.quiz-active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: initial;
+        }
+        h3 {
+            line-height: 1.05em;
+            font-family: Raleway;
+            font-weight: bold;
+            font-size: 1.75rem;
+            text-align: center;
+        }
+    }
+    &__radio {
+        $self: &;
+        width: 100%;
+        height: 3.6875rem;
+        padding-left: 1.4375rem;
+        display: flex;
+        align-items: center;
+
+        background: #FFFFFF;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #EBEBEB;
+        border-radius: 0.625rem;
+
+        margin-bottom: 0.75rem;
+        &-toggler {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.6875rem;
+            height: 1.6875rem;
+            background: #FFFFFF;
+            border: 1px solid #EBEBEB;
+            border-radius: 50%;
+
+            margin-right: 0.875rem;
+            &--inner {
+                width: 0.8125rem;
+                height: 0.8125rem;
+                border-radius: 50%;
+                background: #D0D0D0;
+                border: 1px solid #EBEBEB;   
+                transition: $transition--fast;   
+            }
+        }
+        &-value {
+            font-family: Raleway;
+            font-weight: bold;
+            font-size: 1.375rem;
+            line-height: 1em;
+        }
+        &--sm {
+            #{$self + -value} {
+                font-size: 1rem;
+            }
+        }
+        &.quiz-active {
+            border-color: $primary;
+            #{$self + -toggler--inner} {
+                background: $primary;
+            }
+        }
+    }
+    &__input {
+        width: 100%;
+        height: 2.875rem;
+        padding-left: 1.25rem;
+        font-size: 0.875rem;
+    }
+    &__final {
+        &-title {
+            font-family: Raleway;
+            font-weight: bold;
+            font-size: 2.5rem;
+            color: $primary;
+            margin-top: 0.8125rem;
+        }
+        &-subtitle {
+            font-weight: bold;
+            font-size: 1.125rem;
+            line-height: 1.4375rem;
+            margin-bottom: 1.125rem;
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .quiz {
+        &__img {
+            &-woman {
+                width: 62rem;
+                height: auto;
+                position: absolute;
+                top: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            &-woman-ok {
+                width: 62rem;
+                height: auto;
+                top: 0;
+                left: 0;
+            }
+            &-dim {
+                width: 27.375rem;
+                left: 0;
+                top: 5.5rem;
+            }
+            &-tel {
+                width: 25rem;
+                position: absolute;
+                left: 2.9rem;
+                top: 6.25rem;
+            }
+            &-hand {
+                width: 62rem;
+                height: auto;
+                @include center-item-undo(0, 0);
+            }
+            &-sofa {
+                width: 25.0625rem;
+                top: 7.1875rem;
+                left: 0;
+            }
+
+        }
+        &__circle {
+            width: 27.1875rem;
+            height: 27.1875rem;
+            transform: rotate(-144deg);
+            top: 4rem;
+            left: -6rem;
+        }
+        &__main {}
+        &__subtitle {
+            margin-bottom: 1.5rem;
+            width: 25rem;
+        }
+        &__progress {
+            padding: 0 4.0625rem 0 29.3125rem;
+            margin-bottom: 1.625rem;
+            &-title {
+                font-size: 0.875rem;
+                margin-bottom: 0.375rem;
+            }
+            &-bar {
+                &-wrap {
+                    height: 0.625rem;
+                }
+            }
+        }
+        &__btns {
+            padding: 0 4.0625rem 0 29.3125rem;
+            display: flex;
+            justify-content: flex-start;
+            button {
+                font-size: 0.875rem;
+                margin-right: 0.625rem;
+            }
+        }
+        &-slide {
+            &-wrap {
+                // width: 100%;
+                min-height: unset;
+                height: 25.375rem;
+            }
+            &--first {
+                padding-left: 5rem !important;
+                h3 {
+                    margin-bottom: 1.5625rem;
+                }
+            }
+            &.quiz-active {}
+            h3 {
+                font-size: 2.5rem;
+                text-align: left;
+            }
+        }
+        &__radio {
+            &-wrap {
+                display: flex;
+            }
+            cursor: pointer;
+            overflow: hidden;
+            $self: &;
+            width: 13.375rem;
+            height: 17.0625rem;
+            padding-left: 0;
+            // display: flex;
+            // align-items: center;
+            flex-direction: column;
+    
+            border-color: #D3D3D3;
+            transition: $transition--hover;
+    
+            position: relative;
+            margin-bottom: 0;
+            margin-right: 0.875rem;
+            &-toggler {
+                position: absolute;
+                z-index: 5;
+                top: 0.875rem;
+                left: 0.875rem;
+                margin-right: 0;
+                &--inner {}
+            }
+            &-value {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 1.125rem;
+                height: 3rem;
+                @if $lang == 'ukr' {
+                    padding: 0 0.2rem;
+                }
+            }
+            &--sm {
+                #{$self + -value} {}
+            }
+            &-ibg {
+                border-radius: 0.625rem 0.625rem 0px 0px;
+                width: 100%;
+                height: 13.9375rem;
+            }
+            &:hover {
+                box-shadow: 0px 4px 8px 3px rgba(41, 134, 243, 0.19);
+            }
+            &.quiz-active {
+                box-shadow: 0px 4px 8px 3px rgba(41, 134, 243, 0.19);
+                #{$self + -toggler--inner} {}
+            }
+        }
+        &__input {
+            width: 18.8125rem;
+        }
+        &__final {
+            &-title {
+                font-size: 4.125rem;
+                margin-top: 3rem;
+            }
+            &-subtitle {
+                color: $text-dark;
+                font-size: 1.25rem;
+                line-height: 1.625rem;
+                margin-bottom: 1.0625rem;
+            }
+        }
+    }
+    
+}
