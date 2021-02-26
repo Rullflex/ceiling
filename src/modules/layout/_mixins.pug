@@ -67,36 +67,25 @@ mixin picture-min(type, src, minSrc,  dimentions = globalDimentionsUsage, retina
 			else
 				img.lazyload(src=`${minSrc + postfix.md}-min.${type}` data-src=`${src + postfix.md}.${type}` alt='')&attributes(attributes)
 //- Quiz items
-mixin quiz-radio(value, anchor = '', picture = null)
-	if anchor != ''
-		a.quiz__radio(href=anchor data-uk-toggle="")&attributes(attributes)
-			if picture != null 
-				.quiz__radio-ibg.ibg.d-none.d-lg-block
-					+picture(jpg, `${picture}`, 'n', 'n')
-			.quiz__radio-toggler
-				.quiz__radio-toggler--inner
-			p.quiz__radio-value= value
-	else
-		a.quiz__radio.quiz-radio(data-value=value)&attributes(attributes)
-			if picture != null 
-				.quiz__radio-ibg.ibg.d-none.d-lg-block
-					+picture(jpg, `${picture}`, 'n', 'n')
-			.quiz__radio-toggler
-				.quiz__radio-toggler--inner
-			p.quiz__radio-value= value
+mixin quiz-radio(text, value = null)
+	a.quiz__radio.quiz-radio(data-value=`${value == null ? text : value}`)&attributes(attributes)
+		.quiz__radio-toggler
+			.quiz__radio-toggler--inner
+		p.quiz__radio-value!= text
 
 mixin quiz-nav(count)
-	.quiz__progress.quiz-final-hide
-		.quiz__progress-title #[=lang[62][2]] #[span.quiz-progress-num 2] #[=lang[62][1]] #[= count]
-		.quiz__progress-bar-wrap
-			.quiz__progress-bar.quiz-progress-bar
-	.quiz__btns.quiz-final-hide
-		button.quiz-btn-prev.uk-button.btn-outline-muted
-			+icon('angle-btn-left', muted)
-			span Назад
-		button.quiz-btn-next.uk-button.btn-solid-primary
-			span=lang[61]
-			+icon('angle-btn-right', "white")
+	.d-lg-flex
+		.quiz__progress.quiz-final-hide
+			.quiz__progress-title Шаг #[span.quiz-progress-num 1] #[=lang[62][1]] #[= count]
+			ul.quiz__progress-nav.quiz-progress-nav.uk-dotnav.slidedots.slidedots
+				- for(var i = 1; i <= count; i++)
+					li(class=`${i == 1 ? 'uk-active' : ''}`)
+						a
+		.quiz__btns.quiz-final-hide
+			button.quiz-btn-prev.uk-button.btn-outline-primary
+				span Предыдущий шаг
+			button.quiz-btn-next.uk-button.btn-solid-primary
+				span Следующий шаг
 
 mixin quiz-slide-first(idx)
 	.quiz-slide.quiz-slide--first(data-title=lang[13])
@@ -118,12 +107,14 @@ mixin quiz-slide-dimentions()
 
 mixin quiz-slide-final()
 	.quiz-slide.quiz-slide-final&attributes(attributes)
-		p.quiz__final-title Готово!
-		p.quiz__final-subtitle= lang[67]
-		p.quiz__final-subtitle!= lang[68]
-		+picture(jpg, `${modules}quiz-woman-ok`, 'sl', 'l')(class="quiz__img-woman-ok")
-		form.d-none(action="#")
-			.values 
+		form(action="#")
+			p.quiz__final-title Укажите номер телефона для связи
+			p.quiz__final-subtitle!= lang[68]
+			.input-wrap
+				input.quiz__final-input.input(type="tel" name="Телефон" placeholder="Введите номер телефона")
+			button.quiz__final-submit.uk-button.btn-solid-primary(type="submit") Отправить
+			+picture(jpg, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
+			.values.d-none
 
 
 //- Slider dots and navigation

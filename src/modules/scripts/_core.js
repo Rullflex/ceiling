@@ -70,7 +70,7 @@ class App {
     }
     changeActivityElement(el, activeClass = `active`) {
         el.parentElement.childNodes.forEach(e => e.classList.remove(activeClass))
-        el.parentElement.children[this.showIndex(el, el.parentElement.children)].classList.add(activeClass)
+        el.parentElement.children[this.indexOfElements(el, el.parentElement.children)].classList.add(activeClass)
     }
 
     // возвр. индекс элемента в сете
@@ -92,7 +92,7 @@ class App {
 class Quiz extends App {
     constructor({
         selector,
-        autoMoveDelay = 0,
+        autoMoveDelay = 100,
         activeClass = `quiz-active`,
         startSlide = 0
     } = {}) {
@@ -114,13 +114,19 @@ class Quiz extends App {
     create () {
         this.toSlide(this.currentSlide)
 
-        this.quiz.querySelectorAll(`.quiz-radio`).forEach( (elem, idx, parent) => {
+        this.quiz.querySelectorAll(`.quiz-radio, .quiz-input`).forEach( (elem, idx, parent) => {
             elem.addEventListener(`click`, (event) => {
                 const target = event.currentTarget
-                target.closest(`.quiz-radio-wrap`).querySelectorAll(`.quiz-radio`).forEach(e => e.classList.remove(this.activeClass))
+                target.closest(`.quiz-radio-wrap`).querySelectorAll(`.quiz-radio, .quiz-input`).forEach(e => e.classList.remove(this.activeClass))
                 target.classList.add(this.activeClass)
-                // setTimeout( () => this.toNextSlide(), this.autoMoveDelay)
-                this.toNextSlide()
+                if (target.classList.contains(`quiz-radio`)) {
+                    setTimeout( () => this.toNextSlide(), this.autoMoveDelay)
+                }
+                if (target.classList.contains(`quiz-input`) && target.querySelector('input').value.length == 0) {
+                    this.quiz.querySelector(`.quiz-btn-next`).setAttribute('disabled', true)
+                    this.quiz.querySelector(`.quiz-btn-next`).classList.add('btn-solid-muted')
+                    this.quiz.querySelector(`.quiz-progress-nav`).classList.add('disabled')
+                }
             })
         })
 
@@ -130,48 +136,78 @@ class Quiz extends App {
         })
         this.quiz.querySelector(`.quiz-btn-next`).addEventListener(`click`, ev => {
             // ВАЛИДАЦИЯ
-            if (this.quiz.querySelector(`.quiz-slide.${this.activeClass}`).classList.contains('quiz-validate')) {
-                const wrap = this.quiz.querySelector(`.quiz-slide.${this.activeClass}`)
-                let errors = validate(wrap, this.FormHelper.formConstraints(wrap));
-                // then we update the form to reflect the results
-                this.FormHelper.showErrors(wrap, errors || {});
-                if (!errors) {
-                    this.toNextSlide()
-                }
-            } else {
-                this.toNextSlide()
-            }
+            // if (this.quiz.querySelector(`.quiz-slide.${this.activeClass}`).classList.contains('quiz-validate')) {
+            //     const wrap = this.quiz.querySelector(`.quiz-slide.${this.activeClass}`)
+            //     let errors = validate(wrap, this.FormHelper.formConstraints(wrap));
+            //     // then we update the form to reflect the results
+            //     this.FormHelper.showErrors(wrap, errors || {});
+            //     if (!errors) {
+            //         this.toNextSlide()
+            //     }
+            // } else {
+            //     this.toNextSlide()
+            // }
+            this.toNextSlide()
         })
+        // bind value change on inputs
+        this.quiz.querySelectorAll(`.quiz-input input`).forEach( (elem, idx) => {
+            elem.addEventListener(`input`, ev => {
+                let value = ev.target.value
+                if (value.length > 100) {
+                    ev.target.value = value.substr(0, value.length - 1)
+                }
+                if (value.length == 0) {
+                    this.quiz.querySelector(`.quiz-btn-next`).setAttribute('disabled', true)
+                    this.quiz.querySelector(`.quiz-btn-next`).classList.add('btn-solid-muted')
+                    this.quiz.querySelector(`.quiz-progress-nav`).classList.add('disabled')
+                } else {
+                    this.quiz.querySelector(`.quiz-btn-next`).removeAttribute('disabled')
+                    this.quiz.querySelector(`.quiz-btn-next`).classList.remove('btn-solid-muted')
+                    this.quiz.querySelector(`.quiz-progress-nav`).classList.remove('disabled')
+                }
+                ev.target.closest(`.quiz-input`).setAttribute(`data-value`, ev.target.value)
+            })
+        })
+        // bind nav actions
+        this.quiz.querySelectorAll(`.quiz-progress-nav li`).forEach( (elem, idx, set) => {
+            elem.addEventListener(`click`, ev => {
+                this.changeActivitySet(set, idx, 'uk-active')
+                this.toSlide(idx)
+            })
+        })
+
 
 
         // ВАЛИДАЦИЯ ПРИ СОЗДАНИИ
-        const form = new Form()
-        this.quiz.querySelectorAll('.quiz-slide .input-wrap').forEach((el) => {
-            el.addEventListener("change", ev => {
-                const target = ev.target
-                const currentForm = target.closest('.quiz-slide')
-                const errors = validate(currentForm, this.FormHelper.formConstraints(currentForm)) || {}
-                this.FormHelper.showErrorsForInput(target, errors[target.name])
+        // this.quiz.querySelectorAll('.quiz-slide-final .input-wrap').forEach((el) => {
+        //     el.addEventListener("change", ev => {
+        //         const target = ev.target
+        //         const currentForm = target.closest('.quiz-slide')
+        //         const errors = validate(currentForm, this.FormHelper.formConstraints(currentForm)) || {}
+        //         this.FormHelper.showErrorsForInput(target, errors[target.name])
 
-                // this.quiz.querySelector(`.quiz-btn-next`).removeAttribute('disabled')
-                // this.quiz.querySelector(`.quiz-btn-next`).classList.remove('btn-solid-muted')
-            })
-            el.addEventListener("input", ev => {
-                this.quiz.querySelector(`.quiz-btn-next`).removeAttribute('disabled')
-                this.quiz.querySelector(`.quiz-btn-next`).classList.remove('btn-solid-muted')
-            })
-            if (this.FormHelper.removeErrorOnFocus) {
-                el.addEventListener('focus', ev => {
-                    ev.target.closest(this.FormHelper.formInput).classList.remove(this.FormHelper.classHasError)
-                })
-            }
-        })
+        //         // this.quiz.querySelector(`.quiz-btn-next`).removeAttribute('disabled')
+        //         // this.quiz.querySelector(`.quiz-btn-next`).classList.remove('btn-solid-muted')
+        //     })
+        //     if (this.FormHelper.removeErrorOnFocus) {
+        //         el.addEventListener('focus', ev => {
+        //             ev.target.closest(this.FormHelper.formInput).classList.remove(this.FormHelper.classHasError)
+        //         })
+        //     }
+        // })
     }
 
     refreshValues() {
-        this.quiz.querySelector(`.quiz-progress-bar`).style.cssText = `width: ${100 / (this.numberOfSlides - 1) * this.currentSlide}%`
+        // this.quiz.querySelector(`.quiz-progress-bar`).style.cssText = `width: ${100 / (this.numberOfSlides - 1) * this.currentSlide}%`
+        if (this.currentSlide != this.numberOfSlides - 1) {
+            this.changeActivitySet(this.quiz.querySelectorAll(`.quiz-progress-nav li`), this.currentSlide, 'uk-active')
+        }
         this.quiz.querySelector(`.quiz-progress-num`).innerText = this.currentSlide + 1
-
+        if (this.currentSlide === 0) {
+            this.quiz.querySelector(`.quiz-btn-prev`).setAttribute('disabled', true)
+        } else {
+            this.quiz.querySelector(`.quiz-btn-prev`).removeAttribute('disabled')
+        }
         if (this.currentSlide === this.lastIndex) {
             // финальный слайд
             this.onFinalSlideShow()
@@ -200,9 +236,11 @@ class Quiz extends App {
         if (this.quiz.querySelector(`.quiz-slide.${this.activeClass}`).classList.contains('quiz-validate')) {
             this.quiz.querySelector(`.quiz-btn-next`).setAttribute('disabled', true)
             this.quiz.querySelector(`.quiz-btn-next`).classList.add('btn-solid-muted')
+            this.quiz.querySelector(`.quiz-progress-nav`).classList.add('disabled')
         } else {
             this.quiz.querySelector(`.quiz-btn-next`).removeAttribute('disabled')
             this.quiz.querySelector(`.quiz-btn-next`).classList.remove('btn-solid-muted')
+            this.quiz.querySelector(`.quiz-progress-nav`).classList.remove('disabled')
         }
     }
 
@@ -242,31 +280,27 @@ class Quiz extends App {
                 let list = []
                 el.querySelectorAll(`.${this.activeClass}`).forEach(e => {
                     const value = e.getAttribute("data-value")
-                    let name = ''
-                    if (e.getAttribute("data-name")) {
-                        name = e.getAttribute("data-name") + ': '
-                    }
-                    list.push(name + value)
+                    list.push(value)
                 })
-                el.querySelectorAll(`.quiz__input`).forEach(e => list.push(e.value))
+                // el.querySelectorAll(`.quiz__input`).forEach(e => list.push(e.value))
                 // console.log(el.getAttribute(`data-title`), list.join(`, `))
                 this.quiz.querySelector(`form .values`).insertAdjacentHTML('beforeend', `<input type="hidden" name="${el.getAttribute(`data-title`)}" value="${list.join(`, `)}">`)
             }
             
         })
-        const formData = new FormData(this.quiz.querySelector(`form`))
-        fetch(`${this._apiBase}mail.php`, {
-            method: 'post',
-            body: formData,
-            mode: 'no-cors'
-        }).then(response => {
-            // console.log(response)
-            return response.text()
-        }).then(text => {
-            // console.log(text)
-        }).catch(error => {
-            console.error(error)
-        })
+        // const formData = new FormData(this.quiz.querySelector(`form`))
+        // fetch(`${this._apiBase}mail.php`, {
+        //     method: 'post',
+        //     body: formData,
+        //     mode: 'no-cors'
+        // }).then(response => {
+        //     // console.log(response)
+        //     return response.text()
+        // }).then(text => {
+        //     // console.log(text)
+        // }).catch(error => {
+        //     console.error(error)
+        // })
     }
 
     reset() {

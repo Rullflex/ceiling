@@ -9,11 +9,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
 
 
-    const quiz4 = new Quiz({
-        selector: `#quiz-4`,
-        startSlide: 1
+    const quiz = new Quiz({
+        selector: `#quiz`
     })
-    quiz4.create()
+    quiz.create()
     
     
 
