@@ -1,0 +1,18 @@
++popup()#rig
+	h3.popup__title Выезд замерщика #[span.text-primary бесплатно]
+	p.popup__subtitle Рассчитаем для Вас полную стоимость ремонта
+	p.popup__descr Проконсультируем по интересующим вопросам.#[br.d-none.d-lg-inline] Подскажем по выбору материала. Как  сделать уютную, светлую комнату и при этом сэкономить.
+	form.form(action="#")
+		.form__main
+			.form__block.input-wrap
+				input.form__input.input(type="text" name="Имя" placeholder=lang.urName)
+			.form__block.input-wrap
+				input.form__input.input(type="tel" name="Телефон" placeholder=lang.urTel)
+			input(type="hidden", name="Цель" value="Выезд замерщика бесплатно")
+			button.form__submit.uk-button.btn-solid-primary(type="submit") Отправить
+		.form__policy Нажимая на кнопку, я соглашаюсь#[br] с #[a.form__policy-link(href=privacyLink target="_blank") политикой конфиденциальности]
+	.car 
+		+picture(png, `${modules}car`, 'n')(class="car-img")
+		.car-cb 
+			p Позвоните нам:
+			a.car-tel.link(href=phoneLink)!= phoneNumber

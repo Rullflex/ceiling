@@ -16,7 +16,7 @@ class App {
         this.md = 768
         this.lg = 1280
 
-        this.lang = 'ru'
+        this.lang = 'ukr'
 
         this._apiBase = '/';  
     }

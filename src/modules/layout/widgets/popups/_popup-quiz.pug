@@ -6,43 +6,43 @@
     .quiz__main 
       .quiz-slide-wrap
         .quiz-slide.quiz-active(data-title='Площадь')
-          h3 Какую площадь в&nbsp;помещении вы хотите преобразить?
+          h3 Яку площу в&nbsp;приміщенні ви хочете перетворити?
           .quiz-radio-wrap.quiz__radio-wrap
-            +quiz-radio('<span>меньше</span> 10 м<sup>2</sup>', 'меньше 10 м2')
+            +quiz-radio('<span>менше</span> 10 м<sup>2</sup>', 'менше 10 м2')
             +quiz-radio('10 - 30 м<sup>2</sup>', '10 - 30 м2')(class="quiz-active")
             +quiz-radio('30 - 100 м<sup>2</sup>', '30 - 100 м2')
-            +quiz-radio('<span>больше</span> 100 м<sup>2</sup>', 'больше 100 м2')
+            +quiz-radio('<span>більше</span> 100 м<sup>2</sup>', 'більше 100 м2')
             .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Площадь" placeholder="Точная площадь комнаты")
-        .quiz-slide(data-title='Тип потолка')
-          h3 Какой потолок будет украшать пространство над вами?
+              input.quiz__input.input(type="text" name="Площа" placeholder="Точна площа кімнати")
+        .quiz-slide(data-title='Тип стелі')
+          h3 Який стеля буде прикрашати простір над вами?
           .quiz-radio-wrap.quiz__radio-wrap
-            +quiz-radio('матовый')
-            +quiz-radio('глянцевый')(class="quiz-active")
-            +quiz-radio('фотопечать')
-            +quiz-radio('сатиновый')
+            +quiz-radio('матова')
+            +quiz-radio('глянцева')(class="quiz-active")
+            +quiz-radio('фотодрук')
+            +quiz-radio('сатинова')
             .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Пожелания" placeholder="Опишите свои пожелания")
-        .quiz-slide(data-title='Трубы отопления или вентиляция')
-          h3 Проходят ли в комнате трубы отопления или вентиляция?
+              input.quiz__input.input(type="text" name="Побажання" placeholder="Опишіть свої побажання")
+        .quiz-slide(data-title='Труби опалення або вентиляція')
+          h3 Чи проходять в кімнаті труби опалення або вентиляція?
           .quiz-radio-wrap.quiz__radio-wrap
-            +quiz-radio('нет')
-            +quiz-radio('да')(class="quiz-active")
-        .quiz-slide(data-title='Освещение')
-          h3 Будете устанавливать освещение в комнату?
+            +quiz-radio('ні')
+            +quiz-radio('так')(class="quiz-active")
+        .quiz-slide(data-title='Освітлення')
+          h3 Будете встановлювати освітлення в кімнату?
           .quiz-radio-wrap.quiz__radio-wrap
-            +quiz-radio('устанавливаем люстру')(class="quiz__radio--sm quiz-active")
-            +quiz-radio('устанавливаем светильники')(class="quiz__radio--sm")
-            +quiz-radio('освещение не планируется')(class="quiz__radio--sm")
-            +quiz-radio('хочу дизайнерское освещение')(class="quiz__radio--sm")
+            +quiz-radio('встановлюємо люстру')(class="quiz__radio--sm quiz-active")
+            +quiz-radio('встановлюємо світильники')(class="quiz__radio--sm")
+            +quiz-radio('освітлення не плануємо')(class="quiz__radio--sm")
+            +quiz-radio('хочу дизайнерське освітлення')(class="quiz__radio--sm")
             .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Свой вариант" placeholder="Свой вариант")
+              input.quiz__input.input(type="text" name="Свій варіант" placeholder="Свій варіант")
         +quiz-slide-final()
       +quiz-nav(4)
 

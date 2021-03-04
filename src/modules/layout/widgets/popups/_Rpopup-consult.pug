@@ -1,0 +1,16 @@
++popup()#consult
+	h3.popup__title Проконсультируем#[br] о стоимости и сроках#[br] проведения ремонта
+	p.popup__descr Ответим на все вопросы#[br] Подскажем, как сэкономить до 15% на материалах. Расскажем об этапах проведения ремонта
+	form.form(action="#")
+		.form__main
+			.form__block.input-wrap
+				input.form__input.input(type="text" name="Имя" placeholder=lang.urName)
+			.form__block.input-wrap
+				input.form__input.input(type="tel" name="Телефон" placeholder=lang.urTel)
+			button.form__submit.uk-button.btn-solid-primary(type="submit") Отправить
+		.form__policy Нажимая на кнопку, я соглашаюсь#[br] с #[a.form__policy-link(href=privacyLink target="_blank") политикой конфиденциальности]
+	.phone 
+		+picture(png, `${modules}phone`, 'n')(class="phone-img")
+		.phone-cb 
+			p Позвоните нам:
+			a.phone-tel.link(href=phoneLink)!= phoneNumber

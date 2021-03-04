@@ -81,16 +81,16 @@ mixin quiz-radio(text, value = null)
 mixin quiz-nav(count)
 	.d-lg-flex
 		.quiz__progress.quiz-final-hide
-			.quiz__progress-title Крок #[span.quiz-progress-num 1] #[=lang[62][1]] #[= count]
+			.quiz__progress-title Шаг #[span.quiz-progress-num 1] #[=lang[62][1]] #[= count]
 			ul.quiz__progress-nav.quiz-progress-nav.uk-dotnav.slidedots.slidedots
 				- for(var i = 1; i <= count; i++)
 					li(class=`${i == 1 ? 'uk-active' : ''}`)
 						a
 		.quiz__btns.quiz-final-hide
 			button.quiz-btn-prev.uk-button.btn-outline-primary
-				span Попередній крок
+				span Предыдущий шаг
 			button.quiz-btn-next.uk-button.btn-solid-primary
-				span Наступний крок
+				span Следующий шаг
 
 mixin quiz-slide-first(idx)
 	.quiz-slide.quiz-slide--first(data-title=lang[13])
@@ -113,11 +113,11 @@ mixin quiz-slide-dimentions()
 mixin quiz-slide-final()
 	.quiz-slide.quiz-slide-final&attributes(attributes)
 		form(action="#")
-			p.quiz__final-title Вкажіть номер телефону для зв'язку
+			p.quiz__final-title Укажите номер телефона для связи
 			p.quiz__final-subtitle!= lang[68]
 			.input-wrap
-				input.quiz__final-input.input(type="tel" name="Телефон" placeholder="Введіть номер телефону")
-			button.quiz__final-submit.uk-button.btn-solid-primary(type="submit") Надіслати
+				input.quiz__final-input.input(type="tel" name="Телефон" placeholder="Введите номер телефона")
+			button.quiz__final-submit.uk-button.btn-solid-primary(type="submit") Отправить
 			+picture(jpg, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
 			.values.d-none
 

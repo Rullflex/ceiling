@@ -166,7 +166,13 @@
     
             margin-bottom: 0;
             position: absolute;
-            top: 5.1rem;
+            
+            @if $lang == 'ru' {
+                top: 5.1rem;
+            }
+            @if $lang == 'ukr' {
+                top: 8.5rem;
+            }
             right: 0.5rem;
         }
         &__items {
@@ -248,7 +254,12 @@
         }
         &__benefit-price {
             top: 4.6rem;
-            left: 33.8rem;
+            @if $lang == 'ru' {
+                left: 33.8rem;
+            }
+            @if $lang == 'ukr' {
+                left: 38.8rem;
+            }
         }
         &__items {
             justify-content: space-between;

@@ -74,7 +74,12 @@
             &__title {
                 text-align: left;
                 margin-bottom: 1.1875rem;
-                margin-left: -71px;
+                @if $lang == 'ru' {
+                    margin-left: -71px;
+                }
+                @if $lang == 'ukr' {
+                    margin-left: -107px;
+                }
             }
             &__descr {
                 margin-top: 2.875rem;
