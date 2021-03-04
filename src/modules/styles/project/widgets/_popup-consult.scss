@@ -1,0 +1,72 @@
+#consult {
+    .popup {
+        &__body {
+            padding: 2.8125rem 0.625rem;
+        }
+        &__title {
+            font-size: 1.5rem;
+        }
+        &__descr {
+            margin-top: 1.75rem;
+            margin-bottom: 1.125rem;
+        }
+    }
+    .phone {
+        &-img {
+            display: none;
+        }
+        &-cb {
+            margin-top: 33px;
+            text-align: center;
+            p {
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 1.3em;
+            }
+        }
+        &-tel {
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 34px;
+            text-align: center;
+            color: $primary;
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    #consult {
+        .popup {
+            &__body {
+                padding: 2.3125rem 0 0 24.5625rem;
+            }
+            &__title {
+                font-size: 32px;
+                line-height: 38px;
+            }
+            &__descr {
+                font-size: 18px;
+                margin-top: 0.725rem;
+                margin-bottom: 25px;
+            }
+        }
+        .phone {
+            position: absolute;
+            left: 38px;
+            top: 37px;
+            &-img {
+                display: block;
+                width: 315px;
+                height: 416px;
+            }
+            &-cb {
+                margin-top: -10px;
+                margin-left: 20px;
+                p { }
+            }
+            &-tel {}
+        }
+    }
+}

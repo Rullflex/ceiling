@@ -1,5 +1,7 @@
 $relative-link-to-modules: "../../modules/fonts";
-
+@if $lang == 'ru' and $prod == 'true' {
+    $relative-link-to-modules: "../../../modules/fonts";
+}
 @include font-face("Raleway", "Raleway-Light", "300", "normal", $relative-link-to-modules);
 @include font-face("Raleway", "Raleway-Regular", "400", "normal", $relative-link-to-modules);
 @include font-face("Raleway", "Raleway-Medium", "500", "normal", $relative-link-to-modules);
@@ -16,7 +18,7 @@ $relative-link-to-modules: "../../modules/fonts";
 @include font-face("IBMPlexSans", "IBMPlexSans-Bold", "700", "normal", $relative-link-to-modules);
 
 
-// @include font-face("Roboto", "Roboto-Light", "300", "normal", $relative-link-to-modules);
+@include font-face("Roboto", "Roboto-Light", "300", "normal", $relative-link-to-modules);
 // @include font-face("Roboto", "Roboto-Regular", "400", "normal", $relative-link-to-modules);
 @include font-face("Roboto", "Roboto-Bold", "700", "normal", $relative-link-to-modules);
 

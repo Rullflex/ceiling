@@ -1,12 +1,85 @@
 #thanks {
     .popup {
         &__body {
-            padding: 1.5625rem 1.5rem;
+            // padding: 1.5625rem 1.5rem;
+            padding: 0;
+            height: 100vh;
+            min-height: 35.75rem;
+            background: linear-gradient(180deg, #FFFFFF 13.71%, rgba(255, 255, 255, 0) 48.71%), linear-gradient(95.07deg, #FFFFFF 4.07%, #F3F3F3 34.43%, #F0F0F0 39.24%, #EAEAEA 42%, #ECECEC 93.97%);
         }
     }
-    .quiz {
-        &-slide {
-
+    .ibg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+    }
+    .title {
+        font-family: Raleway;
+        font-weight: bold;
+        font-size: 4.125rem;
+        text-align: center;
+        color: $primary;
+        margin-top: 6.375rem;
+        margin-bottom: 2rem;
+    }
+    .subtitle {
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 1.5em;
+        text-align: center;
+        margin-bottom: 5.25rem;
+    }
+    .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-img {
+            width: 17.125rem;
+        }
+        &-title {
+            width: 100%;
+            font-family: Montserrat;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.07em;
+            color: #6A6A6A;
+            position: relative;
+            margin-top: 1.875rem;
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 0.0625rem;
+                background: #6A6A6A;
+                opacity: 0.6;
+                position: absolute;
+                top: -1rem;
+            }
+        }
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    #thanks {
+        .popup {
+            &__body {
+                // padding: 1.5625rem 1.5rem;
+                padding: 0;
+                height: 34rem;
+                min-height: unset;
+                border-radius: 10px;
+            }
+        }
+        .ibg {
+            border-radius: 10px;
         }
     }
 }
@@ -14,14 +87,20 @@
     #thanks {
         .popup {
             &__body {
-                height: 34.125rem;
+                
+                width: 923px;
+                height: 547px;
                 padding: 0;
             }
         }
-        .quiz {
-            &-slide {
-                padding: 3rem 4.0625rem 2rem 29.3125rem;
-            }
+        .title {
+            margin-top: 4.5625rem;
+            margin-bottom: 1.5625rem;
+        }
+        .subtitle {
+            font-weight: bold;
+            font-size: 25px;
+            margin-bottom: 6.75rem;
         }
     }
 }

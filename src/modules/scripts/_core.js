@@ -346,7 +346,7 @@ class Form extends App {
             },
             "Имя": {
               // You need to pick a username too
-              presence: true,
+              presence: false,
               // And it must be between 3 and 20 characters long
               length: {
                 minimum: 3,

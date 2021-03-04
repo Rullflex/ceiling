@@ -1,6 +1,9 @@
-#thanks.popup.uk-flex-top(data-uk-modal)
-  .popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
-    button.popup__close.uk-modal-close-default(type="button" data-uk-close)
-    .quiz__main 
-      .quiz-slide-wrap
-        h1 Спасибо
++popup()#thanks
+	.ibg
+		+picture(jpg, `${modules}popup-thanks-bg`, 'sm')
+	.main
+		p.title Готово!
+		p.subtitle Спасибо, что воспользовались услугами#[br]нашей компании.#[br.d-md-none] Мы перезвоним#[br.d-md-none] в течение 5 минут
+		a.logo(href="/")
+			img.logo-img(src=`${modulesIco}logo-dark.svg` alt=companyName)
+			p.logo-title Будiвництво та ремонт

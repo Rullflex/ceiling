@@ -1,8 +1,11 @@
 footer.footer 
+    .footer__ibg.ibg
+        +picture(jpg, `${modules}footer-bg`, 'sml')
     .container 
         .footer__row
             a.footer__logo(href="/")
                 img.footer__img-logo(src=`${modulesIco}logo-white.svg` alt=companyName)
+                p.footer__logo-title Натяжные потолки
             p.footer__descr Потолки любой сложности
             .footer__icons 
                 a.footer__icon(href=instLink) 
@@ -10,6 +13,6 @@ footer.footer
                 a.footer__icon(href=fbLink) 
                     +icon('social-fb', 'white')
             .footer__links
-                a.link.footer__tel(href=phoneLink)= phoneNumber
+                a.link.footer__tel(href=phoneLink)!= phoneNumber
                 a.link.footer__email(href=`mailto:${mailAdress}`)= mailAdress
             a.footer__policy(href=privacyLink target="_blank")= lang.policy

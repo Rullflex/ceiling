@@ -38,7 +38,7 @@ block content
 							.s1__item-subtitle!= item.subtitle
 				.s1__tech-wrap
 					p.s1__subtitle Подберём потолок под Ваш бюджет
-					a.uk-button.btn-yellow.s1__btn(href="#rig" data-uk-toggle="")!= lang[6]
+					a.uk-button.btn-yellow.s1__btn(href="#callback" data-uk-toggle="")!= lang[6]
 					p.s1__subbtn Рассчитаем стоимость потолка#[br.d-lg-none] по телефону
 
 				+picture-min(png, `${assets}s1-man`, `${assets}s1-man`, 'sl')(class="s1-img-man lazymin")
@@ -263,7 +263,7 @@ block content
 					p.s9__title Выезд замерщика #[span бесплатно]
 					p.s9__subtitle Возможность рассчитать точную стоимость. И сразу подписать договор #[br.d-md-none]о начале работ
 					.s9__fwrap
-						a.s9__btn.uk-button.btn-yellow Вызвать замерщика
+						a.s9__btn.uk-button.btn-yellow(href="#rig" data-uk-toggle) Вызвать замерщика
 						p.s9__agr #[=lang[50][0]]#[br.d-md-none] #[=lang[50][1]]
 		section.s10
 			.container 
@@ -296,6 +296,8 @@ block content
 			.container
 				h2.s11__title Профессиональная команда
 				.s11__slider
+					- for(var x = 1; x <= 3; x++)
+						.s11__slider-circle(class=`s11__slider-circle-${x}`)
 					.uk-slider-container 
 						ul.s11__slider-items.uk-slider-items 
 							li.s11__slider-item 
@@ -350,8 +352,8 @@ block content
 					p.s12__manager-pos= lang[17]
 					a.s12__manager-btn.uk-button.btn-solid-primary(href="#callback" data-uk-toggle)= lang[18]
 		section.s13 
-			.s13__ibg.ibg
-				+picture(jpg, `${assets}s13-bg`, 'ml', '')
+			//- .s13__ibg.ibg
+			//- 	+picture(jpg, `${assets}s13-bg`, 'ml', '')
 			.container 
 				.s13__map
 					.s13__map-downloading

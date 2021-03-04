@@ -1,5 +1,6 @@
-+popup()#callback
-	h3.popup__title Ответим на#[br.d-md-none] любой вопрос
++popup()#consult
+	h3.popup__title Проконсультируем#[br] о стоимости и сроках#[br] проведения ремонта
+	p.popup__descr Ответим на все вопросы#[br] Подскажем, как сэкономить до 15% на материалах. Расскажем об этапах проведения ремонта
 	form.form(action="#")
 		.form__main
 			.form__block.input-wrap
@@ -13,12 +14,3 @@
 		.phone-cb 
 			p Позвоните нам:
 			a.phone-tel.link(href=phoneLink)!= phoneNumber
-	.mes 
-		p Написать нам в мессенджере
-		.mes-icons 
-			a.mes-icon(href=waLink)
-				+icon('social-wa')
-			a.mes-icon(href=tgLink)
-				+icon('social-tg')
-			a.mes-icon(href=telLink)
-				+icon('social-tel')

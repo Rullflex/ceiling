@@ -26,7 +26,7 @@ header.header
                         span ukr
             a.uk-button.btn-outline-yellow.header__btn.d-none(href="#callback" data-uk-toggle="")= lang[2]
             .header__info.d-none.d-lg-flex
-                a.header__info-tel(href=phoneLink)= phoneNumber
+                a.header__info-tel(href=phoneLink)!= phoneNumber
                 .header__info-status= lang[3]
             //- burger
             a.uk-icon.header__burger(href="#")
@@ -41,7 +41,7 @@ header.header
                             +icon('social-inst', 'white')
                         a.header__drop-icon(href=fbLink) 
                             +icon('social-fb', 'white')
-                    a.header__drop-tel(href=phoneLink)= phoneNumber
+                    a.header__drop-tel(href=phoneLink)!= phoneNumber
                     .header__drop-status= lang[3]
                     a.uk-button.btn-outline-white.header__drop-btn(href="#callback" data-uk-toggle="")= lang.cb
                     a.header__drop-email(href=`mailto:${mailAdress}`)= mailAdress

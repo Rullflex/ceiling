@@ -1,44 +1,114 @@
 #callback {
-    .form {
-        &__img {
-            &-tel.lazyloaded {
-                width: 16.75rem;
-                @media (min-width: map-get($grid-breakpoints, md)) {
-                    width: 20rem;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-            }
+    .popup {
+        &__body {
+            padding: 3.625rem 0.625rem 1.625rem;
+        }
+        &__title {
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 2.375rem;
+            text-align: center;
+            margin-bottom: 3.0625rem;
+        }
+        &__descr {
+            margin-top: 2.875rem;
+            margin-bottom: 1.375rem;
         }
     }
-    .popup {
-
+    .phone {
+        &-img {
+            display: none;
+        }
+        &-cb {
+            margin-top: 33px;
+            text-align: center;
+            p {
+                font-family: Raleway;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 1.3em;
+            }
+        }
+        &-tel {
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 34px;
+            text-align: center;
+            color: $primary;
+        }
+    }
+    .mes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.5625rem;
+        p {
+            font-family: Raleway;
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.3em;
+            text-align: center;
+            margin-bottom: 0.6875rem;
+        }
+        &-icons {
+            display: flex;
+            align-items: center;
+        }
+        &-icon {
+            &:not(:last-child) {
+                margin-right: 1.875rem;
+            }
+        }
     }
 }
 @media (min-width: map-get($grid-breakpoints, md)) {}
 @media (min-width: map-get($grid-breakpoints, lg)) {
     #callback {
-        .form {
-            &__img {
-                &-tel {position: absolute;}
-                &-tel.lazyloaded {
-                    width: 24.9375rem;
-                    margin-left: 0;
-                    position: absolute;
-                    top: 5.0625rem;
-                    left: 3.1875rem;
-                }
-            }
-        }
         .popup {
             &__body {
-                padding: 4.9375rem 10.5rem 6.5rem 29.25rem;
+                width: 923px;
+                height: 547px;
+                padding: 2.3125rem 0 0 28.8125rem;
             }
             &__title {
-                font-size: 2.25rem;
-                margin-bottom: 0;
+                text-align: left;
+                margin-bottom: 1.1875rem;
+                margin-left: -71px;
+            }
+            &__descr {
+                margin-top: 2.875rem;
+                margin-bottom: 19px;
             }
         }
-    } 
+        .phone {
+            position: absolute;
+            left: 59px;
+            top: 42px;
+            &-img {
+                display: block;
+                width: 315px;
+                height: 416px;
+            }
+            &-cb {
+                margin-top: -10px;
+                margin-left: 20px;
+                p { }
+            }
+            &-tel {}
+        }
+        .mes {
+            align-items: flex-start;
+            margin-top: 58px;
+            p {
+                font-size: 1.25rem;
+                text-align: left;
+                margin-bottom: 18px;
+            }
+            &-icons {}
+            &-icon {
+                &:not(:last-child) { }
+            }
+        }
+    }
 }
