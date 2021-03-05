@@ -29,6 +29,9 @@
         &-tel {
             width: 16.9375rem;
         }
+        &-bg2 {
+            display: none;
+        }
         
         @media (min-width: map-get($grid-breakpoints, md)) {
             
@@ -129,12 +132,24 @@
             text-align: center;
             margin-bottom: 1.625rem;
         }
+        &:nth-child(3) {
+            img {
+                width: 16.9375rem;
+                @include center-item-x();
+                bottom: 1.9375rem;
+            }
+        }
+        &:nth-child(4) {
+            img {
+                display: none;
+            }
+        }
     }
     &__radio {
         $self: &;
         width: 100%;
         height: 3.375rem;
-        padding-left: 0.9rem;
+        padding-left: 1rem;
         display: flex;
         align-items: center;
 
@@ -150,6 +165,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0;
             width: 1.3125rem;
             height: 1.3125rem;
             background: #C4C4C4;
@@ -199,7 +215,39 @@
             position: relative;
             .quiz__radio-toggler {
                 @include center-item-y();
-                left: 0.9rem;
+                left: 1rem;
+            }
+            &::before {
+                content: '';
+                display: block;
+                width: 3.3375rem;
+                height: 100%;
+
+                border-right-width: 0.0625rem;
+                border-right-style: solid;
+                border-right-color: #CFCFCF;
+                transition: $transition--normal;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                user-select: none;
+            }
+            &::after {
+                content: attr(data-placeholder);
+                line-height: 1.1em;
+                font-size: inherit;
+                color: #A3A3A3;
+                left: 4.75rem;
+                @include center-item-y();
+                pointer-events: none;
+                user-select: none;
+            }
+            &.focused, &.notnull {
+                &::after {
+                    content: none;
+                }
             }
             &.quiz-active {
                 .quiz__input {
@@ -216,11 +264,14 @@
                     background: $primary;
                     box-shadow: 0px 1px 3px 1px rgba($primary, 0.3);
                 }
+                &::before {
+                    border-right-color: $primary;
+                }
             }
         }
         width: 100%;
         height: 3.375rem;
-        padding-left: 3.14rem;
+        padding-left: 4.75rem;
         font-size: 0.9375rem;
     }
     &__final {
@@ -270,6 +321,14 @@
                 position: absolute;
                 left: -2.1rem;
                 top: 3.25rem;
+            }
+            &-bg2 {
+                opacity: 0;
+                transition: $transition--normal;
+                display: block;
+                &.active {
+                    opacity: 1;
+                }
             }
         }
         
@@ -321,6 +380,38 @@
                 width: 41.875rem;
                 font-size: 2.5rem;
                 text-align: left;
+            }
+            &:nth-child(3) {
+                padding-left: 489px;
+                h3 {
+                    width: 550px;
+                }
+                .quiz__radio {
+                    width: 30.1875rem;
+                }
+                img {
+                    width: 29.1875rem;
+                    @include center-item-undo(40px, -110px);
+                    bottom: 1.9375rem;
+                }
+            }   
+            &:nth-child(4) {
+                padding-left: 370px;
+                .quiz__radio {
+                    width: 19.5625rem;
+                    font-size: 19px;
+                    line-height: 25px;
+                }
+                .quiz__input {
+                    width: 642px;
+                }
+                img {
+                    width: 421px;
+                    display: block;
+                    position: absolute;
+                    left: -100px;
+                    top: -60px;
+                }
             }
         }
         &__radio {
@@ -374,6 +465,13 @@
                 .quiz__radio-toggler {
                     left: 1.4rem;
                 }
+                &::before {
+                    width: 65px;
+                }
+                &::after {
+                    font-size: 19px;
+                    left: 80px;
+                }
                 &:hover {
                     .quiz__input {
                         border-color: $primary;
@@ -392,7 +490,7 @@
             }
             width: 46.5rem;
             height: 4rem;
-            padding-left: 5.9375rem;
+            padding-left: 80px;
             font-size: 1.25rem;
         }
         &__final {
@@ -423,6 +521,16 @@
                 line-height: 4rem;
                 font-size: 1.125rem;
                 width: 19.5625rem;
+            }
+        }
+        &__nav {
+            transform: translateX(0);
+            transition: all 0.05s ease-in;
+            &.skewed2 {
+                transform: translateX(234px);
+            }
+            &.skewed3 {
+                transform: translateX(273px);
             }
         }
     }

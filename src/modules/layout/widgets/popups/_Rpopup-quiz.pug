@@ -2,6 +2,7 @@
   .popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
     .quiz__ibg.ibg
       +picture(jpg, `${modules}quiz-bg`, 'sl')(class="quiz__img-bg")
+      +picture(jpg, `${modules}quiz-bg-2`, 'n')(class="quiz__img-bg2")
     button.popup__close.uk-modal-close-default(type="button" data-uk-close)
     .quiz__main 
       .quiz-slide-wrap
@@ -12,10 +13,10 @@
             +quiz-radio('10 - 30 м<sup>2</sup>', '10 - 30 м2')(class="quiz-active")
             +quiz-radio('30 - 100 м<sup>2</sup>', '30 - 100 м2')
             +quiz-radio('<span>больше</span> 100 м<sup>2</sup>', 'больше 100 м2')
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Напишите точную площадь своей комнаты")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Площадь" placeholder="Точная площадь комнаты")
+              input.quiz__input.input(type="text" name="Площадь")
         .quiz-slide(data-title='Тип потолка')
           h3 Какой потолок будет украшать пространство над вами?
           .quiz-radio-wrap.quiz__radio-wrap
@@ -23,15 +24,16 @@
             +quiz-radio('глянцевый')(class="quiz-active")
             +quiz-radio('фотопечать')
             +quiz-radio('сатиновый')
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Опишите свои пожелания")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Пожелания" placeholder="Опишите свои пожелания")
+              input.quiz__input.input(type="text" name="Пожелания")
         .quiz-slide(data-title='Трубы отопления или вентиляция')
           h3 Проходят ли в комнате трубы отопления или вентиляция?
           .quiz-radio-wrap.quiz__radio-wrap
             +quiz-radio('нет')
             +quiz-radio('да')(class="quiz-active")
+            +picture(png, `${modules}popup-reshetka`, 'n', '')
         .quiz-slide(data-title='Освещение')
           h3 Будете устанавливать освещение в комнату?
           .quiz-radio-wrap.quiz__radio-wrap
@@ -39,10 +41,11 @@
             +quiz-radio('устанавливаем светильники')(class="quiz__radio--sm")
             +quiz-radio('освещение не планируется')(class="quiz__radio--sm")
             +quiz-radio('хочу дизайнерское освещение')(class="quiz__radio--sm")
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Свой вариант")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Свой вариант" placeholder="Свой вариант")
+              input.quiz__input.input(type="text" name="Свой вариант")
+            +picture(png, `${modules}popup-lamp`, 'n', '')
         +quiz-slide-final()
       +quiz-nav(4)
 

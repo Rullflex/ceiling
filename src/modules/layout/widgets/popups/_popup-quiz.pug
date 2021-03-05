@@ -2,6 +2,7 @@
   .popup__body.uk-modal-dialog.uk-modal-body.uk-margin-auto-vertical
     .quiz__ibg.ibg
       +picture(jpg, `${modules}quiz-bg`, 'sl')(class="quiz__img-bg")
+      +picture(jpg, `${modules}quiz-bg-2`, 'n')(class="quiz__img-bg2")
     button.popup__close.uk-modal-close-default(type="button" data-uk-close)
     .quiz__main 
       .quiz-slide-wrap
@@ -12,10 +13,10 @@
             +quiz-radio('10 - 30 м<sup>2</sup>', '10 - 30 м2')(class="quiz-active")
             +quiz-radio('30 - 100 м<sup>2</sup>', '30 - 100 м2')
             +quiz-radio('<span>більше</span> 100 м<sup>2</sup>', 'більше 100 м2')
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Напишіть точну площу своєї кімнати")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Площа" placeholder="Точна площа кімнати")
+              input.quiz__input.input(type="text" name="Площа")
         .quiz-slide(data-title='Тип стелі')
           h3 Який стеля буде прикрашати простір над вами?
           .quiz-radio-wrap.quiz__radio-wrap
@@ -23,15 +24,16 @@
             +quiz-radio('глянцева')(class="quiz-active")
             +quiz-radio('фотодрук')
             +quiz-radio('сатинова')
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Опишіть свої побажання")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Побажання" placeholder="Опишіть свої побажання")
+              input.quiz__input.input(type="text" name="Побажання")
         .quiz-slide(data-title='Труби опалення або вентиляція')
           h3 Чи проходять в кімнаті труби опалення або вентиляція?
           .quiz-radio-wrap.quiz__radio-wrap
             +quiz-radio('ні')
             +quiz-radio('так')(class="quiz-active")
+            +picture(png, `${modules}popup-reshetka`, 'n', '')
         .quiz-slide(data-title='Освітлення')
           h3 Будете встановлювати освітлення в кімнату?
           .quiz-radio-wrap.quiz__radio-wrap
@@ -39,10 +41,11 @@
             +quiz-radio('встановлюємо світильники')(class="quiz__radio--sm")
             +quiz-radio('освітлення не плануємо')(class="quiz__radio--sm")
             +quiz-radio('хочу дизайнерське освітлення')(class="quiz__radio--sm")
-            .quiz__input-wrap.quiz-input.input-wrap(data-value=``)
+            .quiz__input-wrap.quiz-input.input-wrap(data-value=`` data-placeholder="Свій варіант")
               .quiz__radio-toggler
                 .quiz__radio-toggler--inner
-              input.quiz__input.input(type="text" name="Свій варіант" placeholder="Свій варіант")
+              input.quiz__input.input(type="text" name="Свій варіант")
+            +picture(png, `${modules}popup-lamp`, 'n', '')
         +quiz-slide-final()
       +quiz-nav(4)
 

@@ -1,8 +1,13 @@
-#callback {
+#calc {
     .form {
         &__img {
+            &-tel {
+                width: 16.75rem;
+                height: 15.875rem;
+            }
             &-tel.lazyloaded {
                 width: 16.75rem;
+                height: auto;
                 @media (min-width: map-get($grid-breakpoints, md)) {
                     width: 20rem;
                     display: block;
@@ -13,16 +18,35 @@
         }
     }
     .popup {
-
+        &__title {
+            font-size: 1.5625rem;
+        }
+        &__subtitle {
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 1.2em;
+            margin-bottom: 1.5rem;
+        }
     }
-    
+    .img-m2 {
+        position: absolute;
+        z-index: -1;
+        width: 8.1875rem;
+        top: 2.5rem;
+        left: 3.625rem;
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            width: 10rem;
+            top: 2.5rem;
+            left: 8.625rem;
+        }
+    }
     .input {
         border-radius: 1.875rem;
     }
 }
 @media (min-width: map-get($grid-breakpoints, md)) {}
 @media (min-width: map-get($grid-breakpoints, lg)) {
-    #callback {
+    #calc {
         .form {
             &__img {
                 &-tel {position: absolute;}
@@ -30,7 +54,7 @@
                     width: 24.9375rem;
                     margin-left: 0;
                     position: absolute;
-                    top: 5.0625rem;
+                    top: 10rem;
                     left: 3.1875rem;
                 }
             }
@@ -40,9 +64,15 @@
                 padding: 4.9375rem 10.5rem 6.5rem 29.25rem;
             }
             &__title {
-                font-size: 2.25rem;
+                font-size: 34px;
                 margin-bottom: 0;
             }
         }
+        .img-m2 {
+            width: 16.375rem;
+            top: 106px;
+            left: 96px;
+        }
     } 
 }
+

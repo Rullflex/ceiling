@@ -16,9 +16,7 @@ class App {
         this.md = 768
         this.lg = 1280
 
-        this.lang = 'ukr'
-
-        this._apiBase = '/';  
+        this._apiBase = '/api/';   
     }
 
     init() {
@@ -211,8 +209,8 @@ class Quiz extends App {
         if (this.currentSlide === this.lastIndex) {
             // финальный слайд
             this.onFinalSlideShow()
-            this.quiz.querySelectorAll(`.quiz-final-hide`).forEach(el => el.classList.add(`hidden`))
-            this.quiz.querySelectorAll(`.quiz-final-show`).forEach(el => el.classList.remove(`hidden`))
+            this.quiz.querySelectorAll(`.quiz-final-hide`).forEach(el => el.classList.add(`invisible`))
+            this.quiz.querySelectorAll(`.quiz-final-show`).forEach(el => el.classList.remove(`invisible`))
 
             // if (window.innerWidth < this.lg) {
             //     //изменение высот
@@ -221,8 +219,8 @@ class Quiz extends App {
             
         } else {
             // остальные слайды
-            this.quiz.querySelectorAll(`.quiz-final-hide`).forEach(el => el.classList.remove(`hidden`))
-            this.quiz.querySelectorAll(`.quiz-final-show`).forEach(el => el.classList.add(`hidden`))
+            this.quiz.querySelectorAll(`.quiz-final-hide`).forEach(el => el.classList.remove(`invisible`))
+            this.quiz.querySelectorAll(`.quiz-final-show`).forEach(el => el.classList.add(`invisible`))
 
             // if (window.innerWidth < this.lg) {
             //     //изменение высот
@@ -230,6 +228,23 @@ class Quiz extends App {
             //     height: ${this.quiz.querySelector(`.quiz-slide.${this.activeClass} .quiz-radio-wrap`).clientHeight + this.quiz.querySelector(`.quiz-slide.${this.activeClass} h3`).clientHeight + 30}px`
             // }
             
+        }
+        if (window.innerWidth > this.lg) {
+            if (this.currentSlide === 2 || this.currentSlide === 3 || this.currentSlide === 4) {
+                document.querySelector(`.quiz__img-bg2`).classList.add(`active`)
+            } else {
+                document.querySelector(`.quiz__img-bg2`).classList.remove(`active`)
+            }
+            if (this.currentSlide === 2) {
+                document.querySelector(`.quiz__nav`).classList.add(`skewed2`)
+            } else {
+                document.querySelector(`.quiz__nav`).classList.remove(`skewed2`)
+            }
+            if (this.currentSlide === 3 || this.currentSlide === 4) {
+                document.querySelector(`.quiz__nav`).classList.add(`skewed3`)
+            } else {
+                document.querySelector(`.quiz__nav`).classList.remove(`skewed3`)
+            }
         }
 
         // ВАЛИДАЦИЯ
@@ -301,6 +316,7 @@ class Quiz extends App {
         // }).catch(error => {
         //     console.error(error)
         // })
+
     }
 
     reset() {
@@ -434,17 +450,9 @@ class Form extends App {
 
     phoneMask(form) {
         let options = {
-            mask: `+7 (000) 000-00-00`,
-            startsWith: `7`,
+            mask: `+38\\0 00 000 0000`,
             lazy: false,
-            country: `Russia`
-        }
-        if (this.lang === `ukr`) {
-            options = {
-                mask: `+38\\0 00 000 0000`,
-                lazy: false,
-                country: `Ukraine`
-            }
+            country: `Ukraine`
         }
         let mask
         document.querySelectorAll(`${form} input[name=Телефон]`).forEach((e) => {
@@ -536,12 +544,8 @@ class Form extends App {
     showSuccess(form) {
         const formData = new FormData(form)
         
-        // if (form.classList.contains(`form-quiz`)) {
-        //     ym(71270149,'reachGoal','quiz')
-        // } else {
-        //     ym(71270149,'reachGoal','form')
-        // }
-        UIkit.modal(`#thanks`).show();
+        UIkit.modal(`#thanks`).show()
+        ym(72785713,'reachGoal','form')
 
         fetch(`${this._apiBase}mail.php`, {
             method: 'post',

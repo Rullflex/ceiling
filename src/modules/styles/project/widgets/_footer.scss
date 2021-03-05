@@ -2,7 +2,10 @@
     position: relative;
     padding-top: 2.6875rem;
     padding-bottom: 3.125rem;
-
+    //быстрый фикс
+    .link {
+        color: white !important;
+    }
     &__ibg {
         position: absolute;
         width: 100%;

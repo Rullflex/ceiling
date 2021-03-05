@@ -780,7 +780,7 @@
         width: 100%;
         border-radius: 0.3125rem;
         &-image {
-            width: 17.5rem;
+            width: 18rem;
             height: 19.375rem;
             background: #C4C4C4;
         }
@@ -2383,6 +2383,7 @@
         width: 100vw;
         height: 40.3125rem;
         &-downloading {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;

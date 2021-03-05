@@ -1,18 +1,14 @@
 +popup()#rig
-	h3.popup__title Виїзд замірника #[span.text-primary безкоштовно]
-	p.popup__subtitle Розрахуємо для Вас повну вартість ремонту
-	p.popup__descr Проконсультуємо по питаннях, що цікавлять.#[br.d-none.d-lg-inline] Підкажемо за вибором матеріалу. Як зробити затишну, світлу кімнату і при цьому заощадити.
-	form.form(action="#")
-		.form__main
-			.form__block.input-wrap
-				input.form__input.input(type="text" name="Имя" placeholder=lang.urName)
-			.form__block.input-wrap
-				input.form__input.input(type="tel" name="Телефон" placeholder=lang.urTel)
-			input(type="hidden", name="Мета" value="Виїзд замірника безкоштовно")
-			button.form__submit.uk-button.btn-solid-primary(type="submit") Надіслати
-		.form__policy Натискаючи на кнопку, я погоджуюся#[br] з #[a.form__policy-link(href=privacyLink target="_blank") політикою конфіденційності]
-	.car 
-		+picture(png, `${modules}car`, 'n')(class="car-img")
-		.car-cb 
-			p Зателефонуйте нам:
-			a.car-tel.link(href=phoneLink)!= phoneNumber
+	h3.popup__title= lang[34]
+		h3.popup__subtitle= lang[60]
+		form.form(action="#")
+			.form__main
+				.form__block.input-wrap
+					input.form__input.input(type="text" name="Имя" placeholder=lang.urName)
+				.form__block.input-wrap
+					input.form__input.input(type="tel" name="Телефон" placeholder="Ваш телефон")
+				input(type="hidden", name="Цель" value="Бесплатный выезд специалиста")
+				.popup__descr #[=lang[37][0]]#[br] #[!=lang[37][1]]
+				+picture(png, `${modules}car`, 'n', '')(class="form__img-car")
+				button.form__submit.uk-button.btn-solid-primary(type="submit")=lang[2]
+			.form__policy #[=lang[50][0]]#[br]#[a.form__policy-link(href=privacyLink target="_blank")=lang[50][1]]

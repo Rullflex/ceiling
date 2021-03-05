@@ -7,13 +7,26 @@ document.addEventListener(`DOMContentLoaded`, function () {
     const app = new App()
     app.init()
 
-
+    document.querySelectorAll(`a[href="tel:+380932111826"]`).forEach(el => {
+        el.addEventListener('click', () => ym(72785713,'reachGoal','call'))
+    })
 
     const quiz = new Quiz({
         selector: `#quiz`
     })
     quiz.create()
     
+    document.querySelectorAll(`.quiz__input`).forEach( (elem, idx) => {
+        elem.addEventListener('focus', () =>  elem.closest(`.quiz__input-wrap`).classList.add('focused'))
+        elem.addEventListener('focusout', () => {
+            elem.closest(`.quiz__input-wrap`).classList.remove('focused')
+            if (elem.value != '') {
+                elem.closest(`.quiz__input-wrap`).classList.add('notnull')
+            } else {
+                elem.closest(`.quiz__input-wrap`).classList.remove('notnull')
+            }
+        })
+    })
     
 
     UIkit.slideshow(`.s5__slideshow`, {
