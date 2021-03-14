@@ -3,6 +3,7 @@ extends modules/layout/_layout
 prepend head
 	title= lang.title
 	meta(name="description", content=lang.description)
+	meta(name="keywords", content=lang.keywords)
 
 block content
 	main.main
@@ -10,25 +11,25 @@ block content
 			.ibg.s1__ibg
 				+picture(png, `${assets}s1-bg`, 'ml')
 			.container.s1__container
-				h1.s1__title #[span.text-primary НАТЯЖНI СТЕЛI]#[br] для Вашого будинку
-				.s1__benefit-price за вигідною ціною
+				h1.s1__title #[span.text-primary НАТЯЖНОЙ ПОТОЛОК]#[br] для Вашего дома
+				.s1__benefit-price по выгодной цене
 				.s1__items
 					-
 						var list = [
 							{
-								subtitle: 'Екологічне<br> не токсичні<br> полотно',
+								subtitle: 'Экологичное<br> не токсичное<br> полотно',
 								icon: `eco`
 							},
 							{
-								subtitle: 'Установка<br> без пилу<br> і бруду',
+								subtitle: 'Установка<br> без пыли<br> и грязи',
 								icon: `vac`
 							},
 							{
-								subtitle: 'Матеріал<br> не горить',
+								subtitle: 'Материал<br> не горит',
 								icon: `fire`
 							},
 							{
-								subtitle: 'Гарантія<br> 12 років',
+								subtitle: 'Гарантия<br> 12 лет',
 								icon: `waranty`
 							}
 						]
@@ -37,9 +38,9 @@ block content
 							+icon(item.icon)
 							.s1__item-subtitle!= item.subtitle
 				.s1__tech-wrap
-					p.s1__subtitle Підберемо стелю під Ваш бюджет
+					p.s1__subtitle Подберём потолок под Ваш бюджет
 					a.uk-button.btn-yellow.s1__btn(href="#calc" data-uk-toggle="")!= lang[6]
-					p.s1__subbtn Розрахуємо вартість стелі#[br.d-lg-none] по телефону
+					p.s1__subbtn Рассчитаем стоимость потолка#[br.d-lg-none] по телефону
 
 				+picture-min(png, `${assets}s1-man`, `${assets}s1-man`, 'sl')(class="s1-img-man lazymin")
 				a.s1__play.play-video.d-none.d-md-flex(href="#v-about" data-uk-toggle="")
@@ -52,58 +53,58 @@ block content
 					.s2__item.s2__item-1
 						span 6
 						br
-						p років на ринку
+						p лет на рынке
 					.s2__item.s2__item-2
 						span 3800
 						br
-						p встановлених#[br]стель
+						p установленных#[br]потолков
 					.s2__item.s2__item-3
 						span 238
 						br
-						p колірних гам
+						p цветовых гам
 					.s2__item.s2__item-4
-						span #[b від] 2 #[b год]
+						span #[b от] 2 #[b часов]
 						br
-						p установка#[br.d-lg-none] стелі
+						p установка#[br.d-lg-none] потолка
 		section.s3
 			.container 
 				.s3__items 
 					-
 						var list = [
 							{
-								title: 'Натяжні стелі',
+								title: 'Натяжные потолки',
 								set: [
-									'матові',
-									'сатинові',
-									'глянцеві',
-									'фотодрук',
+									'матовые',
+									'сатиновые',
+									'глянцевые',
+									'фотопечать',
 								]
 							},
 							{
-								title: 'багаторівневі стелі',
+								title: 'Многоуровневые потолки',
 								set: [
-									'ширяють стелі',
-									'двох рівневі',
-									'трьох рівневі',
+									'парящие потолки',
+									'двух уровневые',
+									'трёх уровневые',
 								]
 							},
 							{
-								title: 'Освітлення',
+								title: 'Освещение',
 								set: [
-									'світлові лінії',
-									'точечні ліхтарики',
-									'люстри',
-									'лампи',
-									'світлодіодна стрічка',
+									'световые линии',
+									'точечные светильники',
+									'люстры',
+									'лампы',
+									'светодиодная лента',
 								]
 							},
 							{
-								title: 'Фотодрук',
+								title: 'Фотопечать',
 								set: [
-									'зоряне небо',
-									'хмарне небо',
+									'звёздное небо',
+									'облачное небо',
 									'3D принт',
-									'будь-який малюнок',
+									'любой рисунок',
 								]
 							}
 						]
@@ -119,17 +120,17 @@ block content
 			.s4__ibg.ibg
 				+picture(jpg, `${assets}s4-bg`, 'sml')
 			.container
-				h2.s4__title Підберіть #[span.text-primary ідеальний] стелю під #[span.text-primary свій бюджет] #[br.d-lg-none] відповівши на 4 питання
-				p.s4__subtitle за підсумком Ви:
+				h2.s4__title Подберите #[span.text-primary идеальный] потолок под #[span.text-primary свой бюджет]#[br.d-lg-none] ответив на 4 вопроса
+				p.s4__subtitle по итогу Вы:
 				ul.s4__list 
 					
 					li.s4__list-item.s4__list-item--first 
 						+icon('ok', primary)
-						span Подбрете кращий стелю для своєї кімнати і&nbsp;бюджету 
+						span Подбрете лучший потолок для своей комнаты и&nbsp;бюджета 
 					li.s4__list-item 
 						+icon('ok', primary)
-						span + встановимо люстру в&nbsp;подарунок
-				a.s4__btn.uk-button.btn-yellow(href="#quiz" data-uk-toggle) Підібрати стелю
+						span + установим люстру в&nbsp;подарок
+				a.s4__btn.uk-button.btn-yellow(href="#quiz" data-uk-toggle) Подобрать потолок
 				+picture(png, `${assets}s4-lamp`, 'sm')(class=`s4__img-lamp`)
 		section.s5
 			.container 
@@ -137,16 +138,16 @@ block content
 					-
 						var list = [
 							{
-								title: 'Види стелі',
-								set: ['Глянцевий', 'Фотодрук', 'Сатиновий', 'Матовий', 'Хмарне небо', 'Зоряне небо']
+								title: 'Виды потолка',
+								set: ['Глянцевый', 'Фотопечать', 'Сатиновый', 'Матовый', 'Облачное небо', 'Звёздное небо']
 							},
 							{
-								title: 'Тип стелі',
-								set: ['Ширяють стелі', 'Дворівневі', 'Трирівневі']
+								title: 'Тип потолка',
+								set: ['Парящие потолки', 'Двухуровневые', 'Трёхуровневые']
 							},
 							{
-								title: 'Освітлення',
-								set: ['Світлові лінії', 'Точечні ліхтарики', 'Люстри', 'Світлодіодна стрічка', 'Лампи']
+								title: 'Освещение',
+								set: ['Световые линии', 'Точечные светильники', 'Люстры', 'Светодиодная лента', 'Лампы']
 							}
 						]
 					h2.d-md-none= list[0].title
@@ -174,7 +175,7 @@ block content
 									span(data-text=item.title)!= item.title
 		section.s6 
 			.container 
-				h2.s6__title Тепер ці кімнати #[span.text-primary світлі та затишні]
+				h2.s6__title Теперь эти комнаты #[span.text-primary светлые и уютные]
 				.s6__slider(data-uk-slider)
 					.uk-slider-container 
 						ul.s6__slider-items.uk-slider-items 
@@ -194,35 +195,32 @@ block content
 					-
 						var list = [
 							{
-								title: 'Підготовка приміщення',
+								title: 'Подготовка помещения',
 								set: [
-									'Звільняємо периметр приміщення від меблів',
-									'Вкриваємо стіни і меблі захисною плівкою',
-									'Готуємо інструменти до роботи'
+									'Освобождаем периметр помещения от мебели', 
+									'Укрываем стены и мебель защитной плёнкой',
+									'Подготавливаем инструменты к работе'
 								]
 							},
 							{
 								title: 'Установка каркаса',
 								set: [
-									'Звільняємо периметр приміщення від меблів',
-									'Вкриваємо стіни і меблі захисною плівкою',
-									'Готуємо інструменти до роботи'
+									"Устанавливаем закладные под занавески",
+									"Устанавливаем закладные под освещение",
+									"Крепим каркас к стене"
 								]
 							},
 							{
-								title: 'Електропроводка',
+								title: 'Электропроводка',
 								set: [
-									'Звільняємо периметр приміщення від меблів',
-									'Вкриваємо стіни і меблі захисною плівкою',
-									'Готуємо інструменти до роботи'
+									'Прокладываем необходимую электропроводку', 
 								]
 							},
 							{
-								title: 'Монтаж стелі',
+								title: 'Монтаж потолка',
 								set: [
-									'Звільняємо периметр приміщення від меблів',
-									'Вкриваємо стіни і меблі захисною плівкою',
-									'Готуємо інструменти до роботи'
+									"Устанавливаем потолок",
+									"Прокладываем необходимую электропроводку",
 								]
 							}
 						]
@@ -230,10 +228,10 @@ block content
 						ul.s7__slideshow-items.uk-slideshow-items
 							each item, idx in list
 								li.s7__slideshow-item
-									.s7__slideshow-title Етапи роботи
+									.s7__slideshow-title Этапы работы
 									.s7__slideshow-subtitle= item.title
 									.s7__slideshow-image.ibg 
-										+picture(jpg, `${assets}s7-i1`, 'sl')
+										+picture(jpg, `${assets}s7-i${idx + 1}`, 'sl')
 									ul.s7__slideshow-list
 										each point, pIdx in item.set
 											li.s7__slideshow-listitem
@@ -246,55 +244,55 @@ block content
 								span(data-text=item.title)!= item.title
 		section.s8 
 			.container 
-				h2.s8__title Виїзд замірника безкоштовно
-				p.s8__subtitle 60% клієнтів звертаються до нас за рекомендацією
-				+picture(jpg, `${assets}s8-i`, 'n')(class=`s8__img-man`)
+				h2.s8__title Выезд замерщика бесплатно
+				p.s8__subtitle 60% клиентов обращаются к нам по рекомендации
+				+picture(jpg, `${assets}s8-i`, 'n', '')(class=`s8__img-man`)
 				.s8__bl 
-					p.s8__bl-name Привіт, я Андрій Юрченко
-					p.s8__bl-descr Спеціаліст з розрахунку вартості та встановлення натяжних стель
+					p.s8__bl-name Здравствуйте, я Андрей Юрченко
+					p.s8__bl-descr Специалист по расчёту стоимости и установке натяжных потолков
 				.s8__txt 
-					p #[b Безкоштовно розрахована для Вас] повну вартість установки стелі
-					p #[b Проконсультую по питаннях, що цікавлять.]#[br] Підкажу за вибором матеріалу.#[br.d-lg-none] Як зробити затишну, світлу Комате і при цьому заощадити
-					p У нас немає прихованих платежів.#[br] #[b Ціна не поміняється#[br.d-lg-none] після закінчення роботи]
+					p #[b Бесплатно расчитаю для Вас] полную стоимость установки потолка
+					p #[b Проконсультирую по интересующим вопросам.]#[br] Подскажу по выбору материала.#[br.d-lg-none] Как сделать уютную, светлую комату и при этом сэкономить
+					p У нас нету скрытых платежей.#[br] #[b Цена не поменяется#[br.d-lg-none] после окончания работы]
 		section.s9
 			.container 
 				.s9__ctn
-					+picture(jpg, `${assets}s9-i`, 'sm')(class="s9__man")
-					p.s9__title Виїзд замірника #[span безкоштовно]
-					p.s9__subtitle Можливість розрахувати точну вартість. І відразу підписати договір#[br.d-md-none] про початок робіт
+					+picture(png, `${assets}s9-i`, 'sm')(class="s9__man")
+					p.s9__title Выезд замерщика #[span бесплатно]
+					p.s9__subtitle Возможность рассчитать точную стоимость. И сразу подписать договор #[br.d-md-none]о начале работ
 					.s9__fwrap
-						a.s9__btn.uk-button.btn-yellow(href="#rig" data-uk-toggle) Викликати замірника
+						a.s9__btn.uk-button.btn-yellow(href="#rig" data-uk-toggle) Вызвать замерщика
 						p.s9__agr #[=lang[50][0]]#[br.d-md-none] #[=lang[50][1]]
 		section.s10
 			.container 
 				.s10__ctn
-					h2.s10__title Нам довіряють
-					p.s10__subtitle 60% клієнтів звертаються до&nbsp;нас за рекомендацією
-					+picture(png, `${assets}s10-i`, 'n')(class="s10__man")
+					h2.s10__title Нам доверяют
+					p.s10__subtitle 60 % клиентов обращаются к&nbsp;нам по рекомендации
+					+picture(png, `${assets}s10-i`, 'n', '')(class="s10__man")
 					.s10__bl 
-						p.s10__bl-name Григорій Яровий
-						p.s10__bl-descr Головний менеджер компанії
+						p.s10__bl-name Григорий Яровой
+						p.s10__bl-descr Главный менеджер компании
 					.s10__items 
 						.s10__item.s10__item-1
 							img(src=`${assetsIco}helm.svg` alt="" data-uk-img)
-							p Стаж роботи кожного фахівця більше 5 років. Ви отримаєте якісно встановлений стеля
+							p Стаж работы каждого специалиста больше 5 лет. Вы получите качественно установленный потолок
 						.s10__item.s10__item-2 
 							img(src=`${assetsIco}drill.svg` alt="" data-uk-img)
-							p Використовуємо спеціалізовані інструменти
+							p Используем специализированные инструменты
 						.s10__item.s10__item-3
 							img(src=`${assetsIco}times.svg` alt="" data-uk-img)
-							p Установка в зручний для Вас час. Враховуємо всі побажання
+							p Установка в удобное для Вас время. Учитываем все пожелания
 						.s10__item.s10__item-4
 							img(src=`${assetsIco}flames.png` alt="" data-uk-img)
-							p Полотна не токсичні і не горять. Пройшли медичну і пожежну сертифікацію
+							p Полотна не токсичны и не горят. Прошли медицинскую и пожарную сертификацию
 						.s10__item.s10__item-5
 							img(src=`${assetsIco}contract.svg` alt="" data-uk-img)
-							p Працюємо за договором з гарантією якості
+							p Работаем по договору с гарантией качества
 		section.s11
 			.s11__ibg.ibg
 				+picture(jpg, `${assets}s11-bg`, 'sml')
 			.container
-				h2.s11__title Професійна команда
+				h2.s11__title Профессиональная команда
 				.s11__slider
 					- for(var x = 1; x <= 3; x++)
 						.s11__slider-circle(class=`s11__slider-circle-${x}`)
@@ -303,18 +301,18 @@ block content
 							li.s11__slider-item 
 								.s11__slider-img.ibg 
 									+picture(jpg, `${assets}s11-i1`, 'n')
-								p.s11__slider-name Сергій
-								p.s11__slider-pos заміряє
+								p.s11__slider-name Сергей
+								p.s11__slider-pos замерщик
 							li.s11__slider-item 
 								.s11__slider-img.ibg 
 									+picture(jpg, `${assets}s11-i2`, 'n')
-								p.s11__slider-name Ірина
-								p.s11__slider-pos завідуюча
+								p.s11__slider-name Ирина
+								p.s11__slider-pos заведующая
 							li.s11__slider-item 
 								.s11__slider-img.ibg 
 									+picture(jpg, `${assets}s11-i3`, 'n')
-								p.s11__slider-name Андрій
-								p.s11__slider-pos установник
+								p.s11__slider-name Андрей
+								p.s11__slider-pos установщик
 					ul.s7__dots.d-md-none.uk-slider-nav.uk-dotnav.slidedots.slidedots--white
 								
 		section.s12 
@@ -322,48 +320,33 @@ block content
 				h2=lang[44]
 				ul.s12__acc(data-uk-accordion)
 					li.s12__acc-item.s12__acc-item--first.uk-open 
-						a.s12__acc-title.uk-accordion-title(href="#") Полотно для стелі зроблено з якісних матеріалів?
+						a.s12__acc-title.uk-accordion-title(href="#") Полотно для потолка сделано из качественных материалов?
 							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
 						.s12__acc-content.uk-accordion-content
-							p Так, звичайно. Закупаємо тільки якісні полотна. Вони не за найнижчою ціною, але всі матеріали мають сертифікати пожежної та медичної безпеки.#[br] Вони безпечні для людей і тварин, вогнетривкі.
+							p= lang[46]
 					li.s12__acc-item
-						a.s12__acc-title.uk-accordion-title(href="#") Чому не можна відразу написати ціну натяжної стелі?
+						a.s12__acc-title.uk-accordion-title(href="#") Почему нельзя сразу написать цену натяжного потолка?
 							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
 						.s12__acc-content.uk-accordion-content
-							p Розрахунок  вартості роботи складніша, ніж здається.
-
-							p Щоб визначити точну вартість потрібно знати:
-							p
-								| • точну площу приміщення (довжина і ширина)#[br]
-								| • скільки в ньому кутів#[br]
-								| • чи є труби для опалення#[br]
-								| • чи є вентиляційні канали або кондиціонери#[br]
-								| • скільки буде точкових світильників#[br]
-								| • яка люстра (є різні види кріплення)#[br]
-								| • в якому стані наявна електропроводка#[br]
-								| • чи необхідна додаткова електропроводка#[br]
-								| • потрібна звичайна стеля чи індивідуальне дизайнерське рішення#[br]
-								| • з якого матеріалу буде стеля
-
-							p Всі ці нюанси спеціаліст з'ясовує на місці.#[br] Виклик спеіаліст по заміру безкоштовний.
+							p= lang[46]
 					li.s12__acc-item
-						a.s12__acc-title.uk-accordion-title(href="#") Як довго триває монтаж натяжної стелі?
+						a.s12__acc-title.uk-accordion-title(href="#") Как долго устанавливаете натяжной потолок?
 							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
 						.s12__acc-content.uk-accordion-content
-							p Стандартна стеля в кімнату 16-20 м2 встановлюється за 3-4 години
+							p= lang[46]
 					li.s12__acc-item
-						a.s12__acc-title.uk-accordion-title(href="#") Чи багато пилу під час монтажу?
+						a.s12__acc-title.uk-accordion-title(href="#") Много пыли во время установки?
 							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
 						.s12__acc-content.uk-accordion-content
-							p Пилу немає зовсім. Використовуємо спеціальні інструменти з вбудованим пилососом. Стіни вкриваємо захисною плівкою.
+							p= lang[46]
 					li.s12__acc-item.s12__acc-item--last
-						a.s12__acc-title.uk-accordion-title(href="#") Чи є у вас в наявності світильники та люстри?
+						a.s12__acc-title.uk-accordion-title(href="#") Есть у вас светильники и люстры в наличии?
 							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
 						.s12__acc-content.uk-accordion-content
-							p Так. Великий вибір люстр, точкових світильників. Так само світлодіодні стрічки для декоративного освітлення.
+							p= lang[46]
 				.s12__manager.d-none.d-lg-flex 
 					+picture(jpg, `${assets}s11-man`, 'n')
-					p.s12__manager-name Євген Романенко
+					p.s12__manager-name Евгений Романенко
 					p.s12__manager-pos= lang[17]
 					a.s12__manager-btn.uk-button.btn-solid-primary(href="#callback" data-uk-toggle)= lang[18]
 		section.s13 

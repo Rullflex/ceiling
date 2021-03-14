@@ -1,0 +1,379 @@
+extends modules/layout/_layout
+
+prepend head
+	title= lang.title
+	meta(name="description", content=lang.description)
+	meta(name="keywords", content=lang.keywords)
+
+block content
+	main.main
+		section.s1
+			.ibg.s1__ibg
+				+picture(png, `${assets}s1-bg`, 'ml')
+			.container.s1__container
+				h1.s1__title #[span.text-primary НАТЯЖНI СТЕЛI]#[br] для Вашого будинку
+				.s1__benefit-price за вигідною ціною
+				.s1__items
+					-
+						var list = [
+							{
+								subtitle: 'Екологічне<br> нетоксичне<br> полотно',
+								icon: `eco`
+							},
+							{
+								subtitle: 'Установка<br> без пилу<br> і бруду',
+								icon: `vac`
+							},
+							{
+								subtitle: 'Матеріал<br> не горить',
+								icon: `fire`
+							},
+							{
+								subtitle: 'Гарантія<br> 12 років',
+								icon: `waranty`
+							}
+						]
+					each item, idx in list
+						.s1__item(class=`s1__item-${idx + 1}`)
+							+icon(item.icon)
+							.s1__item-subtitle!= item.subtitle
+				.s1__tech-wrap
+					p.s1__subtitle Підберемо стелю під Ваш бюджет
+					a.uk-button.btn-yellow.s1__btn(href="#calc" data-uk-toggle="")!= lang[6]
+					p.s1__subbtn Розрахуємо вартість стелі#[br.d-lg-none] по телефону
+
+				+picture-min(png, `${assets}s1-man`, `${assets}s1-man`, 'sl')(class="s1-img-man lazymin")
+				a.s1__play.play-video.d-none.d-md-flex(href="#v-about" data-uk-toggle="")
+					+icon('playbtn')
+					.play-video__helper.play-video__helper--expanded= lang[9]
+
+		section.s2
+			.container
+				.s2__items
+					.s2__item.s2__item-1
+						span 6
+						br
+						p років на ринку
+					.s2__item.s2__item-2
+						span 3800
+						br
+						p встановлених#[br]стель
+					.s2__item.s2__item-3
+						span 238
+						br
+						p колірних гам
+					.s2__item.s2__item-4
+						span #[b від] 2 #[b годин]
+						br
+						p установка#[br.d-lg-none] стелі
+		section.s3
+			.container 
+				.s3__items 
+					-
+						var list = [
+							{
+								title: 'Натяжні стелі',
+								set: [
+									'матові',
+									'сатинові',
+									'глянцеві',
+									'фотодрук',
+								]
+							},
+							{
+								title: 'Багаторівневі стелі',
+								set: [
+									'ширяючi стелі',
+									'дворiвневi',
+									'трирiвневi',
+								]
+							},
+							{
+								title: 'Освітлення',
+								set: [
+									'світлові лінії',
+									'точечні ліхтарики',
+									'люстри',
+									'лампи',
+									'світлодіодна стрічка',
+								]
+							},
+							{
+								title: 'Фотодрук',
+								set: [
+									'зоряне небо',
+									'хмарне небо',
+									'3D принт',
+									'будь-який малюнок',
+								]
+							}
+						]
+					each item, idx in list
+						.s3__item(class=`s3__item-${idx + 1}`)
+							.s3__ibg.ibg 
+								+picture(jpg, `${assets}s3-i${idx + 1}`, 'n')
+								p.s3__title= item.title
+							ul.s3__list
+								each point in item.set 
+									li.s3__list-item= point
+		section.s4
+			.s4__ibg.ibg
+				+picture(jpg, `${assets}s4-bg`, 'sml')
+			.container
+				h2.s4__title Підберіть #[span.text-primary ідеальну] стелю під #[span.text-primary свій бюджет] #[br.d-lg-none] відповівши на 4 питання
+				p.s4__subtitle за підсумком Ви:
+				ul.s4__list 
+					
+					li.s4__list-item.s4__list-item--first 
+						+icon('ok', primary)
+						span Пiдберете кращу стелю для своєї кімнати і&nbsp;бюджету 
+					li.s4__list-item 
+						+icon('ok', primary)
+						span + встановимо люстру в&nbsp;подарунок
+				a.s4__btn.uk-button.btn-yellow(href="#quiz" data-uk-toggle) Підібрати стелю
+				+picture(png, `${assets}s4-lamp`, 'sm')(class=`s4__img-lamp`)
+		section.s5
+			.container 
+				.s5__widget 
+					-
+						var list = [
+							{
+								title: 'Види стелі',
+								set: ['Глянцева', 'Фотодрук', 'Сатиновий', 'Матовий', 'Хмарне небо', 'Зоряне небо']
+							},
+							{
+								title: 'Тип стелі',
+								set: ['Ширяюча стеля', 'Дворівневі', 'Трирівневі']
+							},
+							{
+								title: 'Освітлення',
+								set: ['Світлові лінії', 'Точечні ліхтарики', 'Люстри', 'Світлодіодна стрічка', 'Лампи']
+							}
+						]
+					h2.d-md-none= list[0].title
+					.s5__slideshow
+						ul.s5__slideshow-items.uk-slideshow-items
+							each item, idx in list
+								li.s5__slideshow-item
+									h2.d-none.d-md-block= item.title
+									.s5__slider(data-uk-slider="draggable: false")
+										ul.s5__slider-items.uk-slider-items 
+											each picture, picIdx in item.set
+												li
+													.s5__slider-image.ibg 
+														+picture(jpg, `${assets}s5-set${idx+1}-i${picIdx+1}`, 'n')
+									.s5__slider-nav
+										.s5__slider-nav-container.uk-slider-container
+											ul.s5__slider-list.uk-slider-items 
+												each point, pointIdx in item.set 
+													li.s5__slider-listitem(class=`${pointIdx == 0 ? 'active' : ''}`)= point
+										a.s5__slider-prev(href="#")
+										a.s5__slider-next(href="#")
+						nav.s5__slideshow-nav
+							each item, idx in list
+								a.s5__slideshow-navitem(href="#" class=`${idx == 0 ? 'active' : ''}`)
+									span(data-text=item.title)!= item.title
+		section.s6 
+			.container 
+				h2.s6__title Тепер ці кімнати #[span.text-primary світлі та затишні]
+				.s6__slider(data-uk-slider)
+					.uk-slider-container 
+						ul.s6__slider-items.uk-slider-items 
+							- for(var i = 1; i <= 5; i++)
+								li.s6__slider-item 
+									.s6__slider-image.ibg 
+										+picture(jpg, `${assets}s6-i${i}`, 'sm')
+					nav.s6__slider-nav
+						a.s6__slider-prev(href="#" data-uk-slider-item="previous")
+						ul.slidedots.uk-slider-nav.uk-dotnav.d-lg-none
+						a.s6__slider-next(href="#" data-uk-slider-item="next")
+		section.s7
+			.s7__ibg.ibg
+				+picture(jpg, `${assets}s7-bg`, 'sml')
+			.container 
+				.s7__widget 
+					-
+						var list = [
+							{
+								title: 'Підготовка приміщення',
+								set: [
+									'Звільняємо периметр приміщення від меблів',
+									'Вкриваємо стіни і меблі захисною плівкою',
+									'Готуємо інструменти до роботи'
+								]
+							},
+							{
+								title: 'Установка каркаса',
+								set: [
+									'Встановлюємо заставні під фіранки',
+									'Встановлюємо заставні під освітлення',
+									'Кріпимо каркас до стіни'
+								]
+							},
+							{
+								title: 'Електропроводка',
+								set: [
+									'Прокладаємо необхідну електропроводку',
+								]
+							},
+							{
+								title: 'Монтаж стелі',
+								set: [
+									'Встановлюємо стелю',
+									'Прокладаємо необхідну електропроводку',
+								]
+							}
+						]
+					.s7__slideshow
+						ul.s7__slideshow-items.uk-slideshow-items
+							each item, idx in list
+								li.s7__slideshow-item
+									.s7__slideshow-title Етапи роботи
+									.s7__slideshow-subtitle= item.title
+									.s7__slideshow-image.ibg 
+										+picture(jpg, `${assets}s7-i${idx + 1}`, 'sl')
+									ul.s7__slideshow-list
+										each point, pIdx in item.set
+											li.s7__slideshow-listitem
+												span= pIdx + 1
+												p!= point
+						ul.s7__dots.d-md-none.uk-slideshow-nav.uk-dotnav.slidedots
+					nav.s7__slideshow-nav.d-none.d-md-flex
+						each item, idx in list
+							a.s7__slideshow-navitem(href="#" class=`${idx == 0 ? 'active' : ''}`)
+								span(data-text=item.title)!= item.title
+		section.s8 
+			.container 
+				h2.s8__title Виїзд замірника безкоштовно
+				p.s8__subtitle 60% клієнтів звертаються до нас за рекомендацією
+				+picture(jpg, `${assets}s8-i`, 'n', '')(class=`s8__img-man`)
+				.s8__bl 
+					p.s8__bl-name Привіт, я Андрій Юрченко
+					p.s8__bl-descr Спеціаліст з розрахунку вартості та встановлення натяжних стель
+				.s8__txt 
+					p #[b Безкоштовно розрахую для Вас] повну вартість установки стелі
+					p #[b Проконсультую по запитанням, що цікавлять.]#[br] Підкажу вибiр матеріалу.#[br.d-lg-none] Як зробити затишну, світлу кiмнату і при цьому заощадити
+					p У нас немає прихованих платежів.#[br] #[b Ціна не змiниться#[br.d-lg-none] після закінчення роботи]
+		section.s9
+			.container 
+				.s9__ctn
+					+picture(png, `${assets}s9-i`, 'sm')(class="s9__man")
+					p.s9__title Виїзд замірника #[span безкоштовно]
+					p.s9__subtitle Можливість розрахувати точну вартість. І відразу підписати договір#[br.d-md-none] про початок робіт
+					.s9__fwrap
+						a.s9__btn.uk-button.btn-yellow(href="#rig" data-uk-toggle) Викликати замірника
+						p.s9__agr #[=lang[50][0]]#[br.d-md-none] #[=lang[50][1]]
+		section.s10
+			.container 
+				.s10__ctn
+					h2.s10__title Нам довіряють
+					p.s10__subtitle 60% клієнтів звертаються до&nbsp;нас за рекомендацією
+					+picture(png, `${assets}s10-i`, 'n', '')(class="s10__man")
+					.s10__bl 
+						p.s10__bl-name Григорій Яровий
+						p.s10__bl-descr Головний менеджер компанії
+					.s10__items 
+						.s10__item.s10__item-1
+							img(src=`${assetsIco}helm.svg` alt="" data-uk-img)
+							p Досвiд роботи кожного фахівця більше 5 років. Ви отримаєте якісно встановлену стелю
+						.s10__item.s10__item-2 
+							img(src=`${assetsIco}drill.svg` alt="" data-uk-img)
+							p Використовуємо спеціалізовані інструменти
+						.s10__item.s10__item-3
+							img(src=`${assetsIco}times.svg` alt="" data-uk-img)
+							p Установка в зручний для Вас час. Враховуємо всі побажання
+						.s10__item.s10__item-4
+							img(src=`${assetsIco}flames.png` alt="" data-uk-img)
+							p Полотна не токсичні і не горять. Пройшли медичну і пожежну сертифікацію
+						.s10__item.s10__item-5
+							img(src=`${assetsIco}contract.svg` alt="" data-uk-img)
+							p Працюємо за договором з гарантією якості
+		section.s11
+			.s11__ibg.ibg
+				+picture(jpg, `${assets}s11-bg`, 'sml')
+			.container
+				h2.s11__title Професійна команда
+				.s11__slider
+					- for(var x = 1; x <= 3; x++)
+						.s11__slider-circle(class=`s11__slider-circle-${x}`)
+					.uk-slider-container 
+						ul.s11__slider-items.uk-slider-items 
+							li.s11__slider-item 
+								.s11__slider-img.ibg 
+									+picture(jpg, `${assets}s11-i1`, 'n')
+								p.s11__slider-name Сергій
+								p.s11__slider-pos замірник
+							li.s11__slider-item 
+								.s11__slider-img.ibg 
+									+picture(jpg, `${assets}s11-i2`, 'n')
+								p.s11__slider-name Ірина
+								p.s11__slider-pos завідуюча
+							li.s11__slider-item 
+								.s11__slider-img.ibg 
+									+picture(jpg, `${assets}s11-i3`, 'n')
+								p.s11__slider-name Андрій
+								p.s11__slider-pos монтажник
+					ul.s7__dots.d-md-none.uk-slider-nav.uk-dotnav.slidedots.slidedots--white
+								
+		section.s12 
+			.container 
+				h2=lang[44]
+				ul.s12__acc(data-uk-accordion)
+					li.s12__acc-item.s12__acc-item--first.uk-open 
+						a.s12__acc-title.uk-accordion-title(href="#") Полотно для стелі зроблено з якісних матеріалів?
+							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
+						.s12__acc-content.uk-accordion-content
+							p Так, звичайно. Закуповуемо тільки якісні полотна. Вони не за найнижчою ціною, але всі матеріали мають сертифікати пожежної та медичної безпеки.#[br] Вони безпечні для людей і тварин, вогнетривкі.
+					li.s12__acc-item
+						a.s12__acc-title.uk-accordion-title(href="#") Чому не можна відразу написати ціну натяжної стелі?
+							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
+						.s12__acc-content.uk-accordion-content
+							p Розрахунок  вартості роботи складніший, ніж здається.
+
+							p Щоб визначити точну вартість потрібно знати:
+							p
+								| • точну площу приміщення (довжина і ширина)#[br]
+								| • скільки в ньому кутів#[br]
+								| • чи є труби для опалення#[br]
+								| • чи є вентиляційні канали або кондиціонери#[br]
+								| • скільки буде точкових світильників#[br]
+								| • яка люстра (є різні види кріплення)#[br]
+								| • в якому стані наявна електропроводка#[br]
+								| • чи необхідна додаткова електропроводка#[br]
+								| • потрібна звичайна стеля чи індивідуальне дизайнерське рішення#[br]
+								| • з якого матеріалу буде стеля
+
+							p Всі ці нюанси спеціаліст з'ясовує на місці.#[br] Виклик спеіаліста по заміру безкоштовний.
+					li.s12__acc-item
+						a.s12__acc-title.uk-accordion-title(href="#") Як довго триває монтаж натяжної стелі?
+							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
+						.s12__acc-content.uk-accordion-content
+							p Стандартна стеля в кімнату 16-20 м2 встановлюється за 3-4 години
+					li.s12__acc-item
+						a.s12__acc-title.uk-accordion-title(href="#") Чи багато пилу під час монтажу?
+							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
+						.s12__acc-content.uk-accordion-content
+							p Пилу немає зовсім. Використовуємо спеціальні інструменти з вбудованим пилососом. Стіни вкриваємо захисною плівкою.
+					li.s12__acc-item.s12__acc-item--last
+						a.s12__acc-title.uk-accordion-title(href="#") Чи є у вас в наявності світильники та люстри?
+							+icon('angle-down', '#2B3034')(class="d-none d-md-block")
+						.s12__acc-content.uk-accordion-content
+							p Так. Великий вибір люстр, точкових світильників. Також світлодіодні стрічки для декоративного освітлення.
+				.s12__manager.d-none.d-lg-flex 
+					+picture(jpg, `${assets}s11-man`, 'n')
+					p.s12__manager-name Євген Романенко
+					p.s12__manager-pos= lang[17]
+					a.s12__manager-btn.uk-button.btn-solid-primary(href="#callback" data-uk-toggle)= lang[18]
+		section.s13 
+			//- .s13__ibg.ibg
+			//- 	+picture(jpg, `${assets}s13-bg`, 'ml', '')
+			.container 
+				.s13__map
+					.s13__map-downloading
+						.loadingio-spinner-rolling-hz3sd853mcv
+							.ldio-ekx347c8429
+								div
+					.s13__map-script
+
+
+

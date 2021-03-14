@@ -27,22 +27,22 @@ mixin popup()
 mixin picture(type, src, dimentions = globalDimentionsUsage, retina = globalRetinaUsage)
 	picture
 		if dimentions.includes(`n`)
-			source(srcset=ipl data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x,` : ``} ${src}.webp 1x` type=`image/webp`)
-			source(srcset=ipl data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x,` : ``} ${src}.${type} 1x` type=`image/${type}`)
+			source(srcset=ipl data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x,` : ``} ${src}.webp${retina.includes(`n`) ? ` 1x` : ``}` type=`image/webp`)
+			source(srcset=ipl data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x,` : ``} ${src}.${type}${retina.includes(`n`) ? ` 1x` : ``}` type=`image/${type}`)
 			img.lazyload(src=ipl data-src=`${src}.${type}` alt='')&attributes(attributes)
 		else
 			if dimentions.includes(`x`)
-				source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x,` : ``} ${src + postfix.xl}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x,` : ``} ${src + postfix.xl}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x,` : ``} ${src + postfix.xl}.webp${retina.includes(`x`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${xl}px)` srcset=ipl data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x,` : ``} ${src + postfix.xl}.${type}${retina.includes(`x`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`l`)
-				source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x,` : ``} ${src + postfix.lg}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x,` : ``} ${src + postfix.lg}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x,` : ``} ${src + postfix.lg}.webp${retina.includes(`l`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${lg}px)` srcset=ipl data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x,` : ``} ${src + postfix.lg}.${type}${retina.includes(`l`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`m`)
-				source(media=`(min-width: ${md}px)` srcset=ipl data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x,` : ``} ${src + postfix.md}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${md}px)` srcset=ipl data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x,` : ``} ${src + postfix.md}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${md}px)` srcset=ipl data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x,` : ``} ${src + postfix.md}.webp${retina.includes(`m`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${md}px)` srcset=ipl data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x,` : ``} ${src + postfix.md}.${type}${retina.includes(`m`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`s`)
-				source(media=`(min-width: 0px)` srcset=ipl data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x,` : ``} ${src + postfix.sm}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: 0px)` srcset=ipl data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x,` : ``} ${src + postfix.sm}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: 0px)` srcset=ipl data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x,` : ``} ${src + postfix.sm}.webp${retina.includes(`s`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: 0px)` srcset=ipl data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x,` : ``} ${src + postfix.sm}.${type}${retina.includes(`s`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`l`)
 				img.lazyload(src=ipl data-src=`${src + postfix.lg}.${type}` alt='')&attributes(attributes)
 			else
@@ -51,22 +51,22 @@ mixin picture(type, src, dimentions = globalDimentionsUsage, retina = globalReti
 mixin picture-min(type, src, minSrc,  dimentions = globalDimentionsUsage, retina = globalRetinaUsage)
 	picture
 		if dimentions.includes(`n`)
-			source(srcset=`${minSrc}-min.${type}` data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x,` : ``} ${src}.webp 1x` type=`image/webp`)
-			source(srcset=`${minSrc}-min.${type}` data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x,` : ``} ${src}.${type} 1x` type=`image/${type}`)
+			source(srcset=`${minSrc}-min.${type}` data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.webp 2x,` : ``} ${src}.webp${retina.includes(`n`) ? ` 1x` : ``}` type=`image/webp`)
+			source(srcset=`${minSrc}-min.${type}` data-srcset=`${retina.includes(`n`) ? `${src + postfixRetina}.${type} 2x,` : ``} ${src}.${type}${retina.includes(`n`) ? ` 1x` : ``}` type=`image/${type}`)
 			img.lazyload(src=`${minSrc}-min.${type}` data-src=`${src}.${type}` alt='')&attributes(attributes)
 		else
 			if dimentions.includes(`x`)
-				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x,` : ``} ${src + postfix.xl}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x,` : ``} ${src + postfix.xl}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.webp 2x,` : ``} ${src + postfix.xl}.webp${retina.includes(`x`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${xl}px)` srcset=`${minSrc + postfix.xl}-min.${type}` data-srcset=`${retina.includes(`x`) ? `${src + postfix.xl + postfixRetina}.${type} 2x,` : ``} ${src + postfix.xl}.${type}${retina.includes(`x`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`l`)
-				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x,` : ``} ${src + postfix.lg}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x,` : ``} ${src + postfix.lg}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.webp 2x,` : ``} ${src + postfix.lg}.webp${retina.includes(`l`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${lg}px)` srcset=`${minSrc + postfix.lg}-min.${type}` data-srcset=`${retina.includes(`l`) ? `${src + postfix.lg + postfixRetina}.${type} 2x,` : ``} ${src + postfix.lg}.${type}${retina.includes(`l`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`m`)
-				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x,` : ``} ${src + postfix.md}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x,` : ``} ${src + postfix.md}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.webp 2x,` : ``} ${src + postfix.md}.webp${retina.includes(`m`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: ${md}px)` srcset=`${minSrc + postfix.md}-min.${type}` data-srcset=`${retina.includes(`m`) ? `${src + postfix.md + postfixRetina}.${type} 2x,` : ``} ${src + postfix.md}.${type}${retina.includes(`m`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`s`)
-				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x,` : ``} ${src + postfix.sm}.webp 1x` type=`image/webp`)
-				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x,` : ``} ${src + postfix.sm}.${type} 1x` type=`image/${type}`)
+				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.webp 2x,` : ``} ${src + postfix.sm}.webp${retina.includes(`s`) ? ` 1x` : ``}` type=`image/webp`)
+				source(media=`(min-width: 0px)` srcset=`${minSrc + postfix.sm}-min.${type}` data-srcset=`${retina.includes(`s`) ? `${src + postfix.sm + postfixRetina}.${type} 2x,` : ``} ${src + postfix.sm}.${type}${retina.includes(`s`) ? ` 1x` : ``}` type=`image/${type}`)
 			if dimentions.includes(`l`)
 				img.lazyload(src=`${minSrc + postfix.lg}-min.${type}` data-src=`${src + postfix.lg}.${type}` alt='')&attributes(attributes)
 			else
@@ -81,16 +81,16 @@ mixin quiz-radio(text, value = null)
 mixin quiz-nav(count)
 	.d-lg-flex.quiz__nav
 		.quiz__progress.quiz-final-hide
-			.quiz__progress-title Шаг #[span.quiz-progress-num 1] #[=lang[62][1]] #[= count]
+			.quiz__progress-title Крок #[span.quiz-progress-num 1] #[=lang[62][1]] #[= count]
 			ul.quiz__progress-nav.quiz-progress-nav.uk-dotnav.slidedots.slidedots
 				- for(var i = 1; i <= count; i++)
 					li(class=`${i == 1 ? 'uk-active' : ''}`)
 						a
 		.quiz__btns.quiz-final-hide
 			button.quiz-btn-prev.uk-button.btn-outline-primary
-				span Предыдущий шаг
+				span Попередній крок
 			button.quiz-btn-next.uk-button.btn-solid-primary
-				span Следующий шаг
+				span Наступний крок
 
 mixin quiz-slide-first(idx)
 	.quiz-slide.quiz-slide--first(data-title=lang[13])
@@ -113,12 +113,12 @@ mixin quiz-slide-dimentions()
 mixin quiz-slide-final()
 	.quiz-slide.quiz-slide-final&attributes(attributes)
 		form(action="#")
-			p.quiz__final-title Укажите номер телефона для связи
+			p.quiz__final-title Вкажіть номер телефону для зв'язку
 			p.quiz__final-subtitle!= lang[68]
 			.input-wrap
-				input.quiz__final-input.input(type="tel" name="Телефон" placeholder="Введите номер телефона")
-			button.quiz__final-submit.uk-button.btn-solid-primary(type="submit") Отправить
-			+picture(jpg, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
+				input.quiz__final-input.input(type="tel" name="Телефон" placeholder="Введіть номер телефону")
+			button.quiz__final-submit.uk-button.btn-solid-primary(type="submit") Надіслати
+			+picture(png, `${modules}popup-tel`, 'n', 'n')(class="quiz__img-tel")
 			.values.d-none
 
 

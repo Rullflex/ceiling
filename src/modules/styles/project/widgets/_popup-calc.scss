@@ -58,13 +58,22 @@
                     left: 3.1875rem;
                 }
             }
+            
+            &__submit {
+                margin-top: 1rem;
+            }
         }
         .popup {
             &__body {
                 padding: 4.9375rem 10.5rem 6.5rem 29.25rem;
             }
             &__title {
-                font-size: 34px;
+                @if $lang == 'ru' {
+                    font-size: 31px;
+                }
+                @if $lang == 'ukr' {
+                    font-size: 34px;
+                }
                 margin-bottom: 0;
             }
         }
